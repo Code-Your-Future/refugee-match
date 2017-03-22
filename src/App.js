@@ -24,8 +24,29 @@ class App extends Component {
           question:'question3',
           answers: ['answer3.1', 'answer3.2', 'answer3.3']
         }
-      ]
+      ],
+      answers: []
     }
+  }
+
+  handleButton(e) {
+    console.log(e.type);
+  }
+
+  handleCheckBox = (question, answer, e) => {
+    console.log(e) // to show the current outcomes
+    // create new object
+    const answers = {}
+    // setting questions and answer props
+    answers.question = question;
+    answers.answer = answer;
+    // create new Array, set it to the prevouse state and push object to it
+    const newAnswer = this.state.answers;
+    newAnswer.push(answers);
+    console.log(answers); // to show the current outcomes
+    // set the state
+    this.setState({answers: newAnswer})
+    console.log(this.state.answers);// to show the outcomes
   }
 
   render() {
@@ -36,7 +57,10 @@ class App extends Component {
         </div>
 
         <Main language={this.state.languages}/>
-        <Question questions={this.state.questions}/>
+        <Question questions={this.state.questions } handleCheckBox={this.handleCheckBox} />
+
+          <input type="button" onClick={this.handleButton}></input>
+          <input type="button" onClick={this.handleButton}></input>
 
       </div>
     );

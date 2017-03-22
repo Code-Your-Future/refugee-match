@@ -3,9 +3,6 @@ import './question.css';
 
 
 class Question extends Component {
-  handleClick(e) {
-    console.log(`${e.target.name} is ${e.target.checked ? 'selected' : 'not selected'} `);
-  }
   render() {
     const questions = this.props.questions;
     return (
@@ -20,7 +17,12 @@ class Question extends Component {
                 {val.answers.map((answer, i) => {
                   return (
                     <div className="answer" key={i}>
-                      <lable><input name={answer} type="checkbox"  onClick={this.handleClick}/>{answer}</lable>
+                      <lable>
+                        <input name={answer}
+                          type="checkbox"
+                          onChange={() => this.props.handleCheckBox(val.question, answer)}/>
+                          {answer}
+                      </lable>
                     </div>
                   )
                 })}

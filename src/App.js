@@ -32,9 +32,11 @@ export default class App extends Component {
       tempAnswer: [],
     }
   }
-  answer = (event) => {
+  multiAnswer = (event) => {
+    const eventValue = event.target.value;
     let tempAnswer = this.state.tempAnswer;
-    tempAnswer.push(event.target.value);
+    const index = tempAnswer.indexOf(eventValue);
+    index === -1 ? tempAnswer.push(eventValue):tempAnswer.splice(index,1);
     this.setState({tempAnswer: tempAnswer});
     // event.preventDefault();
   }
@@ -102,7 +104,7 @@ export default class App extends Component {
         return (
           <MultiOptionQuestion
           question={questions[questionNumber]}
-          whenAnswered={this.answer}
+          whenAnswered={this.multiAnswer}
           handleSubmit={this.handleSubmit} />
         );
       default:

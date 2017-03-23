@@ -35,21 +35,27 @@ export default class App extends Component {
   answer = (event) => {
     let tempAnswer = this.state.tempAnswer;
     tempAnswer.push(event.target.value);
-    console.log(event.target.value);
-    event.target.value = null;
     this.setState({tempAnswer: tempAnswer});
     // event.preventDefault();
   }
   handleSubmit = (event) => {
-    console.log(event.target.value);
     const questions = this.state.questions;
-    const languagesList = this.state.languagesList;
     let answers = this.state.answers;
     let tempAnswer = this.state.tempAnswer;
     let questionNumber = this.state.questionNumber;
     if (questionNumber === -1) {
       questionNumber++;
       return this.setState({questionNumber: questionNumber});
+    }
+    if (questionNumber === questions.length) {
+      return (
+        this.setState(
+          {
+            questionNumber: 0,
+            answers: [],
+          }
+        )
+      )
     }
     if (questions[questionNumber].questionType === 'single answer') {
       questionNumber++;
@@ -78,7 +84,7 @@ export default class App extends Component {
     const questionNumber = this.state.questionNumber;
     const questions = this.state.questions;
     const languagesList = this.state.languagesList;
-    if (questionNumber === -1) {
+    if (questionNumber === -1 || questionNumber >= questions.length) {
       return (
         <Languages
         languagesList={languagesList}
@@ -92,7 +98,6 @@ export default class App extends Component {
           question={questions[questionNumber]}
           whenAnswered={this.handleSubmit} />
         );
-      break;
       case 'multi answer': 
         return (
           <MultiOptionQuestion

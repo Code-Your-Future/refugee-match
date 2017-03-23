@@ -1,66 +1,124 @@
-import Main from './components/main/main';
-import Question from './components/questions/question';
+import React, { Component } from 'react';
+import './App.css';
+import Languages from './components/Languages';
+import SingleOptionQuestion from './components/SingleOptionQuestion';
+import MultiOptionQuestion from './components/MultiOptionQuestion';
+import Footer from './components/Footer';
 
-
-
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      languages: ['Arabic', 'English', 'فارسى' ],
-      questions: [
+      languagesList: ['English','Arabic','Francais'],
+      questions:[
         {
-          question:'question1',
-          answers: ['answer1.1', 'answer1.2', 'answer1.3']
+          question: 'Are you a refugee or in a refugee-like situation?',
+          options: ['Yes','No','Prefer not to say'],
+          questionType: 'single answer'
         },
         {
-          question:'question2',
-          answers: ['answer2.1', 'answer2.2', 'answer2.3']
+          question: 'Which of these sectors would you be most likely to look for a job in?',
+          options: ['Administration','Manufacturing','Education','Construction','Retail','Business','Electricity, Gas and Water'],
+          questionType: 'multi answer'
         },
         {
-          question:'question3',
-          answers: ['answer3.1', 'answer3.2', 'answer3.3']
+          question: 'Would you prefer to live in a city or the countryside?',
+          options: ['City','Countryside','I don\'t mind'],
+          questionType: 'single answer'
         }
       ],
-      answers: []
+      answers: [],
+      questionNumber: -1,
+      tempAnswer: [],
     }
   }
-
-  handleButton(e) {
-    console.log(e.type);
+  answer = (event) => {
+    let tempAnswer = this.state.tempAnswer;
+    tempAnswer.push(event.target.value);
+    console.log(event.target.value);
+    event.target.value = null;
+    this.setState({tempAnswer: tempAnswer});
+    // event.preventDefault();
   }
-
-  handleCheckBox = (question, answer, e) => {
-    console.log(e) // to show the current outcomes
-    // create new object
-    const answers = {}
-    // setting questions and answer props
-    answers.question = question;
-    answers.answer = answer;
-    // create new Array, set it to the prevouse state and push object to it
-    const newAnswer = this.state.answers;
-    newAnswer.push(answers);
-    console.log(answers); // to show the current outcomes
-    // set the state
-    this.setState({answers: newAnswer})
-    console.log(this.state.answers);// to show the outcomes
+  handleSubmit = (event) => {
+    console.log(event.target.value);
+    const questions = this.state.questions;
+    const languagesList = this.state.languagesList;
+    let answers = this.state.answers;
+    let tempAnswer = this.state.tempAnswer;
+    let questionNumber = this.state.questionNumber;
+    if (questionNumber === -1) {
+      questionNumber++;
+      return this.setState({questionNumber: questionNumber});
+    }
+    if (questions[questionNumber].questionType === 'single answer') {
+      questionNumber++;
+      answers.push(event.target.value);
+      console.log(questionNumber,'   ',answers);
+      this.setState(
+        {
+          questionNumber: questionNumber,
+          answers: answers,
+        }
+      );
+    }else {
+      questionNumber++;
+      answers.push(tempAnswer);
+      console.log(questionNumber,'   ',answers);
+      this.setState(
+        {
+          questionNumber: questionNumber,
+          answers: answers,
+          tempAnswer: []
+        }
+      );
+    }
   }
-
+  displayRender = () => {
+    const questionNumber = this.state.questionNumber;
+    const questions = this.state.questions;
+    const languagesList = this.state.languagesList;
+    if (questionNumber === -1) {
+      return (
+        <Languages
+        languagesList={languagesList}
+        whenClick={this.handleSubmit} />
+      );
+    }
+    switch (questions[questionNumber].questionType) {
+      case 'single answer': 
+        return (
+          <SingleOptionQuestion
+          question={questions[questionNumber]}
+          whenAnswered={this.handleSubmit} />
+        );
+      break;
+      case 'multi answer': 
+        return (
+          <MultiOptionQuestion
+          question={questions[questionNumber]}
+          whenAnswered={this.answer}
+          handleSubmit={this.handleSubmit} />
+        );
+      default:
+      break;
+    }
+  }
   render() {
     return (
       <div className="App">
         <div className="App-header">
           <h2>Refugee Match</h2>
         </div>
-
-        <Main language={this.state.languages}/>
-        <Question questions={this.state.questions } handleCheckBox={this.handleCheckBox} />
-
-          <input type="button" onClick={this.handleButton}></input>
-          <input type="button" onClick={this.handleButton}></input>
-
+        <div className="App-container">
+          {
+            this.displayRender()
+          }
+        </div>
+        <div className="App-footer">
+          <Footer />
+        </div>
       </div>
     );
   }
-
 }

@@ -15,9 +15,10 @@ class Main extends Component {
           {languages.map((val) => {
             return (
               <div className={val}>
-                  <button>
-                    <img src={require(`./${val}.png`)}  alt={val} />
-                  </button>
+                <button>
+                  <strong>{val} </strong>
+                  <img src={require(`./${val}.png`)}  alt={val} />
+                </button>
               </div>
                   );
           })}

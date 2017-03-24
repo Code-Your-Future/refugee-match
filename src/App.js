@@ -9,6 +9,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // this state is just for displaying the outcomes (depend on the databases)
       languagesList: ['English','Arabic','Francais'],
       questions:[
         {
@@ -27,29 +28,45 @@ export default class App extends Component {
           questionType: 'single answer'
         }
       ],
+      // for pushing the ansers
       answers: [],
+      // to display each question at one time
       questionNumber: -1,
+      // this is the current answer in the current page (in case if the quetion is MultiOptionQuestion)  :)
       tempAnswer: [],
     }
   }
+
+  // this is to make an object of multi option
   multiAnswer = (event) => {
     const eventValue = event.target.value;
-    let tempAnswer = this.state.tempAnswer;
+    let tempAnswer = this.state.tempAnswer
+    // delete unchecked value from the list
     const index = tempAnswer.indexOf(eventValue);
     index === -1 ? tempAnswer.push(eventValue):tempAnswer.splice(index,1);
+    // you can use this one as well
+    // const checked = event.target.checked;
+    // checked ? tempAnswer.push(eventValue) : tempAnswer.splice(index, 1);
     this.setState({tempAnswer: tempAnswer});
     // event.preventDefault();
   }
+
+  // for the language button, checkbox and radiobox answers
   handleSubmit = (event) => {
+    // list of state we have
     const questions = this.state.questions;
     let answers = this.state.answers;
     let tempAnswer = this.state.tempAnswer;
     let questionNumber = this.state.questionNumber;
+    // check question number and increment it, if it has a defult value
     if (questionNumber === -1) {
       questionNumber++;
       return this.setState({questionNumber: questionNumber});
     }
+    // if it reach to the end of questions
+    // set the state to its defaul value
     if (questionNumber === questions.length) {
+      // this should be rendering the result page which is in progress
       return (
         this.setState(
           {
@@ -81,7 +98,9 @@ export default class App extends Component {
         }
       );
     }
-  }
+  } // this is the end of handleSubmit
+  
+  // render componenets
   displayRender = () => {
     const questionNumber = this.state.questionNumber;
     const questions = this.state.questions;
@@ -94,13 +113,13 @@ export default class App extends Component {
       );
     }
     switch (questions[questionNumber].questionType) {
-      case 'single answer': 
+      case 'single answer':
         return (
           <SingleOptionQuestion
           question={questions[questionNumber]}
           whenAnswered={this.handleSubmit} />
         );
-      case 'multi answer': 
+      case 'multi answer':
         return (
           <MultiOptionQuestion
           question={questions[questionNumber]}

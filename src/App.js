@@ -1,70 +1,150 @@
 import React, { Component } from 'react';
 import './App.css';
+import Languages from './components/Languages';
+import SingleOptionQuestion from './components/SingleOptionQuestion';
+import MultiOptionQuestion from './components/MultiOptionQuestion';
+import Footer from './components/Footer';
 
-import Main from './components/main/main';
-import Question from './components/questions/question';
-
-
-
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      languages: ['Arabic', 'English', 'فارسى' ],
-      questions: [
+      // this state is just for displaying the outcomes (depend on the databases)
+      languagesList: ['English','Arabic','Francais'],
+      questions:[
         {
-          question:'question1',
-          answers: ['answer1.1', 'answer1.2', 'answer1.3']
+          question: 'Are you a refugee or in a refugee-like situation?',
+          options: ['Yes','No','Prefer not to say'],
+          questionType: 'single answer'
         },
         {
-          question:'question2',
-          answers: ['answer2.1', 'answer2.2', 'answer2.3']
+          question: 'Which of these sectors would you be most likely to look for a job in?',
+          options: ['Administration','Manufacturing','Education','Construction','Retail','Business','Electricity, Gas and Water'],
+          questionType: 'multi answer'
         },
         {
-          question:'question3',
-          answers: ['answer3.1', 'answer3.2', 'answer3.3']
+          question: 'Would you prefer to live in a city or the countryside?',
+          options: ['City','Countryside','I don\'t mind'],
+          questionType: 'single answer'
         }
       ],
-      answers: []
+      // for pushing the ansers
+      answers: [],
+      // to display each question at one time
+      questionNumber: -1,
+      // this is the current answer in the current page (in case if the quetion is MultiOptionQuestion)  :)
+      tempAnswer: [],
     }
   }
 
-  handleButton(e) {
-    console.log(e.type);
+  // this is to make an object of multi option
+  multiAnswer = (event) => {
+    const eventValue = event.target.value;
+    let tempAnswer = this.state.tempAnswer
+    // delete unchecked value from the list
+    const index = tempAnswer.indexOf(eventValue);
+    index === -1 ? tempAnswer.push(eventValue):tempAnswer.splice(index,1);
+    // you can use this one as well
+    // const checked = event.target.checked;
+    // checked ? tempAnswer.push(eventValue) : tempAnswer.splice(index, 1);
+    this.setState({tempAnswer: tempAnswer});
+    // event.preventDefault();
   }
 
-  handleCheckBox = (question, answer) => {
-    console.log("") // to show the current outcomes
-    // create new object
-    const answers = {}
-    // setting questions and answer props
-    answers.question = question;
-    answers.answer = answer;
-    // create new Array, set it to the prevouse state and push object to it
-    const newAnswer = this.state.answers;
-    newAnswer.push(answers);
-    console.log(answers); // to show the current outcomes
-    // set the state
-    this.setState({answers: newAnswer})
-    console.log(this.state.answers);// to show the outcomes
+  // for the language button, checkbox and radiobox answers
+  handleSubmit = (event) => {
+    // list of state we have
+    const questions = this.state.questions;
+    let answers = this.state.answers;
+    let tempAnswer = this.state.tempAnswer;
+    let questionNumber = this.state.questionNumber;
+    // check question number and increment it, if it has a defult value
+    if (questionNumber === -1) {
+      questionNumber++;
+      return this.setState({questionNumber: questionNumber});
+    }
+    // if it reach to the end of questions
+    // set the state to its defaul value
+    if (questionNumber === questions.length) {
+      // this should be rendering the result page which is in progress
+      return (
+        this.setState(
+          {
+            questionNumber: 0,
+            answers: [],
+          }
+        )
+      )
+    }
+    if (questions[questionNumber].questionType === 'single answer') {
+      questionNumber++;
+      answers.push(event.target.value);
+      console.log(questionNumber,'   ',answers);
+      this.setState(
+        {
+          questionNumber: questionNumber,
+          answers: answers,
+        }
+      );
+    }else {
+      questionNumber++;
+      answers.push(tempAnswer);
+      console.log(questionNumber,'   ',answers);
+      this.setState(
+        {
+          questionNumber: questionNumber,
+          answers: answers,
+          tempAnswer: []
+        }
+      );
+    }
+  } // this is the end of handleSubmit
+  
+  // render componenets
+  displayRender = () => {
+    const questionNumber = this.state.questionNumber;
+    const questions = this.state.questions;
+    const languagesList = this.state.languagesList;
+    if (questionNumber === -1 || questionNumber >= questions.length) {
+      return (
+        <Languages
+        languagesList={languagesList}
+        whenClick={this.handleSubmit} />
+      );
+    }
+    switch (questions[questionNumber].questionType) {
+      case 'single answer':
+        return (
+          <SingleOptionQuestion
+          question={questions[questionNumber]}
+          whenAnswered={this.handleSubmit} />
+        );
+      case 'multi answer':
+        return (
+          <MultiOptionQuestion
+          question={questions[questionNumber]}
+          whenAnswered={this.multiAnswer}
+          handleSubmit={this.handleSubmit} />
+        );
+      default:
+      break;
+    }
   }
-
   render() {
     return (
       <div className="App">
         <div className="App-header">
           <h2>Refugee Match</h2>
         </div>
-
-        <Main language={this.state.languages}/>
-        <Question questions={this.state.questions } handleCheckBox={this.handleCheckBox} />
-
-          <input type="button" onClick={this.handleButton}></input>
-          <input type="button" onClick={this.handleButton}></input>
-
+        <div className="App-container">
+          {
+            this.displayRender()
+          }
+        </div>
+        <div className="App-footer">
+          <Footer />
+        </div>
       </div>
     );
   }
 }
-
-export default App;

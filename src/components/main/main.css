@@ -6,7 +6,7 @@
    margin: 5px;
    border: none;
    display: inline-block;
-   background-color: white;
+   background-color: #f10f0c;
  }
 button:hover {
   opacity: .3;

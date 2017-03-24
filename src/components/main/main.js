@@ -5,7 +5,6 @@ import './main.css';
 class Main extends Component {
   render() {
     const languages = this.props.language;
-    console.log(languages);
     return (
       <div className="Main">
         <p className="App-intro">

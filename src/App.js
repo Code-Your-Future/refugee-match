@@ -33,8 +33,8 @@ class App extends Component {
     console.log(e.type);
   }
 
-  handleCheckBox = (question, answer, e) => {
-    console.log(e) // to show the current outcomes
+  handleCheckBox = (question, answer) => {
+    console.log("") // to show the current outcomes
     // create new object
     const answers = {}
     // setting questions and answer props

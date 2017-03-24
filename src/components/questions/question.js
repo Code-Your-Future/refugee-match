@@ -11,19 +11,16 @@ class Question extends Component {
           {questions.map((val, i) => {
             return (
               <form key={i}>
-                <div className="question">
                   <h2>{val.question}</h2>
-                </div>
                 {val.answers.map((answer, i) => {
                   return (
-                    <div className="answer" key={i}>
                       <lable>
+                        <br />
                         <input name={answer}
                           type="checkbox"
                           onChange={() => this.props.handleCheckBox(val.question, answer)}/>
                           {answer}
                       </lable>
-                    </div>
                   )
                 })}
               </form>

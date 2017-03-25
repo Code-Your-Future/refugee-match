@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Languages from './components/Languages';
-import SingleOptionQuestion from './components/SingleOptionQuestion';
-import MultiOptionQuestion from './components/MultiOptionQuestion';
+import Question from './components/Question';
 import Footer from './components/Footer';
 
 export default class App extends Component {
@@ -112,23 +111,12 @@ export default class App extends Component {
         whenClick={this.handleSubmit} />
       );
     }
-    switch (questions[questionNumber].questionType) {
-      case 'single answer':
-        return (
-          <SingleOptionQuestion
-          question={questions[questionNumber]}
-          whenAnswered={this.handleSubmit} />
-        );
-      case 'multi answer':
-        return (
-          <MultiOptionQuestion
-          question={questions[questionNumber]}
-          whenAnswered={this.multiAnswer}
-          handleSubmit={this.handleSubmit} />
-        );
-      default:
-      break;
-    }
+    return (
+      <Question 
+      question={questions[questionNumber]} 
+      whenAnswered={this.multiAnswer} 
+      handleSubmit={this.handleSubmit}/>
+    );
   }
   render() {
     return (

@@ -1,23 +1,21 @@
 import React from 'react';
 
-export default function MultiOptionQuestion(props) {
+export default function SingleOptionAnswer(props) {
   const question = props.question.question;
   const options = props.question.options;
   const answer = props.whenAnswered;
-  const handleSubmit = props.handleSubmit;
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <h3>{question}</h3>
       {
         options.map((option, index) => {
           return (
-            <label key={index} >{option}
-              <input type='checkbox' name='option' value={option} onChange={answer} /><br/>
+            <label htmlFor={index} key={index} >{option}
+              <input type='radio' name='option' value={option} id={index} onChange={answer} /><br/>
             </label>
           );
         })
       }
-      <input type='submit' value='Next'/>
     </form>
   );
 }

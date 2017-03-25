@@ -1,6 +1,6 @@
 import React from 'react';
-import SingleOptionQuestion from './SingleOptionQuestion';
-import MultiOptionQuestion from './MultiOptionQuestion';
+import SingleOptionAnswer from './SingleOptionAnswer';
+import MultiOptionAnswer from './MultiOptionAnswer';
 
 export default function Question(props) {
   const question = props.question;
@@ -11,8 +11,11 @@ export default function Question(props) {
     <div>
       {
         questionType === 'single answer' ?
-        <SingleOptionQuestion question={question} whenAnswered={handleSubmit} /> : 
-        <MultiOptionQuestion
+        <SingleOptionAnswer
+          question={question}
+          whenAnswered={handleSubmit} />
+        : 
+        <MultiOptionAnswer
           question={question}
           whenAnswered={multiAnswer}
           handleSubmit={handleSubmit} />

@@ -32,30 +32,14 @@ export default class App extends Component {
       // to display each question at one time
       questionNumber: -1,
       // this is the current answer in the current page (in case if the quetion is MultiOptionQuestion)  :)
-      tempAnswer: [],
     }
   }
 
-  // this is to make an object of multi option
-  multiAnswer = (event) => {
-    const eventValue = event.target.value;
-    let tempAnswer = this.state.tempAnswer
-    // delete unchecked value from the list
-    const index = tempAnswer.indexOf(eventValue);
-    index === -1 ? tempAnswer.push(eventValue):tempAnswer.splice(index,1);
-    // you can use this one as well
-    // const checked = event.target.checked;
-    // checked ? tempAnswer.push(eventValue) : tempAnswer.splice(index, 1);
-    this.setState({tempAnswer: tempAnswer});
-    // event.preventDefault();
-  }
-
-  // for the language button, checkbox and radiobox answers
-  handleSubmit = (event) => {
+    // for the language button, checkbox and radiobox answers
+  handleSubmit = (answer) => {
     // list of state we have
     const questions = this.state.questions;
     let answers = this.state.answers;
-    let tempAnswer = this.state.tempAnswer;
     let questionNumber = this.state.questionNumber;
     // check question number and increment it, if it has a defult value
     if (questionNumber === -1) {
@@ -75,28 +59,17 @@ export default class App extends Component {
         )
       )
     }
-    if (questions[questionNumber].questionType === 'single answer') {
-      questionNumber++;
-      answers.push(event.target.value);
-      console.log(questionNumber,'   ',answers);
+    questionNumber++;
+    answers.push(answer);
+    console.log(questionNumber,'   ',answers);
+    return (
       this.setState(
         {
           questionNumber: questionNumber,
           answers: answers,
         }
-      );
-    }else {
-      questionNumber++;
-      answers.push(tempAnswer);
-      console.log(questionNumber,'   ',answers);
-      this.setState(
-        {
-          questionNumber: questionNumber,
-          answers: answers,
-          tempAnswer: []
-        }
-      );
-    }
+      )
+    )
   } // this is the end of handleSubmit
   
   // render componenets
@@ -114,7 +87,6 @@ export default class App extends Component {
     return (
       <Question 
       question={questions[questionNumber]} 
-      whenAnswered={this.multiAnswer} 
       handleSubmit={this.handleSubmit}/>
     );
   }

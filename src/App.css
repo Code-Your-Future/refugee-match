@@ -17,14 +17,26 @@
 }
 
 .App-footer {
-	padding: 10px;
-	margin: 10px;
-	background-color: #cce6ff;
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:85px;
+  width:100%;
+  background-color: #cce6ff;
 }
 
+.language-btn{
+  margin: 2px;
+}
 .language-btn img {
 	width: 30px;
 	height: 22px;
+  padding: 3px;
 }
 
+.footer-images img {
+  width:130px;
+  height:50px;
+  padding:5px;
+}
 

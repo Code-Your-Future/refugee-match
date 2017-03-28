@@ -5,9 +5,9 @@ export default function Languages(props) {
   const whenClick = props.whenClick;
   return (
     <div>
-      <h2>The UK and you</h2>
+      <h2>The UK and You</h2>
       <img src={require(`../images/Uk-areas.png`)}  alt='Uk-areas' />
-      <p>choose your language</p>
+      <p>Choose Your Language</p>
       {
         languagesList.map((language, index) => {
           return (

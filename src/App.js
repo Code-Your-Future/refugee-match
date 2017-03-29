@@ -16,11 +16,32 @@ export default class App extends Component {
           options: ['Yes','No','Prefer not to say'],
           questionType: 'single answer'
         },
+        // {
+        //   question: 'Rank how important these factors are to you',
+        //   options: ['Job opportunities','Cost of living','Quality of schools','Level of crime'],
+        //   rank: [25, 50, 75, 100],
+        //   questionType: 'rank answer'
+        // },
         {
-          question: 'Which of these sectors would you be most likely to look for a job in?',
-          options: ['Administration','Manufacturing','Education','Construction','Retail','Business','Electricity, Gas and Water'],
+          question: 'Is it important for you to access any of these? (tick all that apply)',
+          options: ['English teaching','Practical training','University'],
           questionType: 'multi answer'
         },
+        {
+          question: 'Is it important for you to live near any of these places of worship?',
+          options: ['Mosque','Church','Synagogue','Hindu temple','Sikh temple','Buddhist temple','Other'],
+          questionType: 'single answer'
+        },
+        {
+          question: 'Which of these sectors would you be most likely to look for a job in?',
+          options: ['Administration', 'Manufacturing', 'Education', 'Construction', 'Retail', 'Health and Social work', 'Electricity, Gas and Water', 'Hotel and Restaurant', 'Agriculture', 'Business', 'Other'],
+          questionType: 'multi answer'
+        },
+        // {
+        //   question: 'Which of these pictures do you like the most?',
+        //   options: ['Countryside.png', 'oldcity.png', 'moderncity.png'],
+        //   questionType: 'single photo answer'
+        // },
         {
           question: 'Would you prefer to live in a city or the countryside?',
           options: ['City','Countryside','I don\'t mind'],

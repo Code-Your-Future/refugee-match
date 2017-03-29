@@ -35,6 +35,7 @@ export default function MultiOptionAnswer(props) {
           );
         })
       }
+      <input type='button' value='Back' onClick={() => console.log('some thing to do')} />
       <input type='submit' value='Next'/>
     </form>
   );

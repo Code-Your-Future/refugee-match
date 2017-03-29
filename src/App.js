@@ -71,6 +71,19 @@ export default class App extends Component {
     // set the state to its defaul value
     if (questionNumber === questions.length) {
       // this should be rendering the result page which is in progress
+      fetch('http://localhost:9000/api', {
+        method: 'POST',
+        // mode: 'no-cors',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+        answers: this.state.answers
+      })
+    })
+    // .then((data) => console.log(data.json()))
+    // .catch((err) => console.error(err))
       return (
         this.setState(
           {
@@ -92,7 +105,6 @@ export default class App extends Component {
       )
     )
   } // this is the end of handleSubmit
-  
   // render componenets
   displayRender = () => {
     const questionNumber = this.state.questionNumber;
@@ -106,8 +118,8 @@ export default class App extends Component {
       );
     }
     return (
-      <Question 
-      question={questions[questionNumber]} 
+      <Question
+      question={questions[questionNumber]}
       handleSubmit={this.handleSubmit}/>
     );
   }
@@ -128,4 +140,7 @@ export default class App extends Component {
       </div>
     );
   }
+  // componentDidMount() {
+
+  // }// componentDidMount ends here
 }

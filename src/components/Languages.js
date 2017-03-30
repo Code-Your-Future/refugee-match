@@ -13,7 +13,6 @@ export default function Languages(props) {
           return (
             <button key={index} className="language-btn" onClick={whenClick}>
               {language}
-              <img src={require(`../images/${language}.png`)}  alt={language} />
             </button>
           );
         })

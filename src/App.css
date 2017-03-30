@@ -1,15 +1,16 @@
 .App {
+  box-sizing: border-box;
   text-align: center;
-  padding: 10px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .App-header {
-  margin: auto;
-  height: 80px;
-  width: 100px;
-  background-color: #cce6ff;
+  box-sizing: border-box;
   padding: 10px;
-  color: white;
+  height: 80px;
+  width: 100%;
+  background-color: #cce6ff;
 }
 
 .App-intro {
@@ -17,25 +18,27 @@
 }
 
 .App-map img{
-  width:200px;
-  height:250px;
+  width: 200px;
+  height: 250px;
 }
 .App-container {
   display: flex;
-  min-height: 65vh;
+  min-height: 68vh;
   flex-direction: column;
   margin: 10px;   
 }
 
 .App-footer {
-
-  padding: 5px;
+  margin: 0;
+  width: 100%;
   background-color: #cce6ff;
+  height: 104px;
 }
 
 .language-btn{
   margin: 2px;
 }
+
 .language-btn img {
   width: 30px;
   height: 22px;
@@ -46,4 +49,24 @@
   width:130px;
   height:50px;
   padding:5px;
+}
+
+input[type=button],button {
+  border-radius: 75%;
+  padding: 10px;
+  margin: 10px;
+  width: 80px;
+  height: auto;
+  background-color: #cce6ff;
+}
+
+label {
+  padding: 10px;
+  margin: 15px auto;
+  border: 2px #787bb6 dashed;
+  display: block;
+  width: 220px;
+  text-align: right;
+  background-color: #cce6ff;
+  cursor: pointer;
 }

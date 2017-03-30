@@ -5,7 +5,7 @@
 
 .App-header {
   margin: auto;
-  height: 100px;
+  height: 80px;
   width: 100px;
   background-color: #cce6ff;
   padding: 10px;
@@ -16,15 +16,34 @@
   font-size: large;
 }
 
+.App-map img{
+  width:200px;
+  height:250px;
+}
+.App-container {
+  display: flex;
+  min-height: 65vh;
+  flex-direction: column;
+  margin: 10px;   
+}
+
 .App-footer {
-	padding: 10px;
-	margin: 10px;
-	background-color: #cce6ff;
+
+  padding: 5px;
+  background-color: #cce6ff;
 }
 
+.language-btn{
+  margin: 2px;
+}
 .language-btn img {
-	width: 30px;
-	height: 22px;
+  width: 30px;
+  height: 22px;
+  padding: 3px;
 }
 
-
+.footer-images img {
+  width:130px;
+  height:50px;
+  padding:5px;
+}

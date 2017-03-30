@@ -140,7 +140,4 @@ export default class App extends Component {
       </div>
     );
   }
-  // componentDidMount() {
-
-  // }// componentDidMount ends here
 }

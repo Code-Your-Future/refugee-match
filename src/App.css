@@ -91,3 +91,8 @@ form{
 input{
   margin-bottom: 30px;
 }
+
+textarea {
+  width: 210px;
+  height: 250px;
+}

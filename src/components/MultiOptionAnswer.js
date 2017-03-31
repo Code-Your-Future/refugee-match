@@ -67,7 +67,7 @@ export default function MultiOptionAnswer(props) {
         })
       }
       <input type='button' value='Back' onClick={() => console.log('some thing to do')} />
-      <input type='button' value='Next' onClick={() => {answerChecking() ? alert('No answer provided'):handleSubmit(answers())}} />
+      <input type='button' value='Next' onClick={() => {answerChecking() ? alert('No answer provided, please check \'Other\' value'):handleSubmit(answers())}} />
     </form>
   );
 }

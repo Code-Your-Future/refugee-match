@@ -46,12 +46,7 @@ export default class App extends Component {
           question: 'Would you prefer to live in a city or the countryside?',
           options: ['City','Countryside','I don\'t mind'],
           questionType: 'single answer'
-        },
-        {
-          question: 'Rank how important these factors are to you',
-          options: ['Job opportunities', 'Cost of living', 'Quality of schools', 'Level of crime'],
-          questionType: 'ranking answer'
-        },
+        }
       ],
       // for pushing the ansers
       answers: [],

@@ -6,6 +6,7 @@ html{
   background-size: 100% 100%;
 }
 .App {
+  box-sizing: border-box;
   text-align: center;
   padding: 10px;
 
@@ -26,8 +27,8 @@ html{
 }
 
 .App-map img{
-  width:200px;
-  height:250px;
+  width: 200px;
+  height: 250px;
 }
 
 .App-container {
@@ -46,6 +47,7 @@ html{
 .language-btn{
   margin: 2px;
 }
+
 .language-btn img {
   width: 30px;
   height: 22px;
@@ -56,6 +58,26 @@ html{
   width:10%;
   height:7%;
   padding:5px;
+}
+
+input[type=button],button {
+  border-radius: 75%;
+  padding: 10px;
+  margin: 10px;
+  width: 80px;
+  height: auto;
+  background-color: #cce6ff;
+}
+
+label {
+  padding: 10px;
+  margin: 15px auto;
+  border: 2px #787bb6 dashed;
+  display: block;
+  width: 220px;
+  text-align: right;
+  background-color: #cce6ff;
+  cursor: pointer;
 }
 
 .footer-images img:nth-child(1){

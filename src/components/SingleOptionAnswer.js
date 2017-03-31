@@ -28,7 +28,7 @@ export default function SingleOptionAnswer(props) {
           );
         })
       }
-      <input type='button' value='Back' onClick={() => console.log('some thing to do')} />
+      <input type='button' value='Previous' onClick={() => console.log('some thing to do')} />
       <input type='button' value='Next' onClick={() => {answerChecking() ? alert('No answer provided'):handleSubmit(answer())}} />
     </form>
   );

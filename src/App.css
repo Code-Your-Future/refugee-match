@@ -1,15 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
+/*font-family: 'Roboto', sans-serif;*/
+
+html{
+  background: url('https://images.template.net/wp-content/uploads/2015/08/Extraordinary-Beach-Background-Free-Download.png') no-repeat;
+  background-size: 100% 100%;
+}
 .App {
   text-align: center;
   padding: 10px;
+
 }
 
 .App-header {
   margin: auto;
-  height: 80px;
-  width: 100px;
-  background-color: #cce6ff;
-  padding: 10px;
+  /*background-color: #cce6ff;*/
+  padding: 8px;
   color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
 }
 
 .App-intro {
@@ -23,15 +32,15 @@
 
 .App-container {
   display: flex;
-  min-height: 64vh;
+  min-height: 62vh;
   flex-direction: column;
   margin: 10px;   
 }
 
 .App-footer {
-
+  font-size: 10px;
   padding: 11px;
-  background-color: #cce6ff;
+ /* background-color: #cce6ff;*/
 }
 
 .language-btn{
@@ -52,4 +61,11 @@
 .footer-images img:nth-child(1){
   width:6%;
   height:6%;
+}
+form{
+  font-family: 'Roboto', sans-serif;
+}
+
+input{
+  margin-bottom: 30px;
 }

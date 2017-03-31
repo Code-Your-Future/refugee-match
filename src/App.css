@@ -27,4 +27,18 @@
 	height: 22px;
 }
 
+label {
+  padding: 10px;
+  margin: 15px auto;
+  border: 2px #787bb6 dashed;
+  display: block;
+  width: 220px;
+  text-align: right;
+  background-color: #cce6ff;
+  cursor: pointer;
+}
 
+textarea {
+  width: 210px;
+  height: 250px;
+}

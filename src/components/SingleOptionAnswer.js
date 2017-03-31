@@ -3,13 +3,25 @@ import React from 'react';
 let tempAnswer = '';
 
 function answerChecking() {
-  return tempAnswer === '';
+  return (tempAnswer === '');
+}
+
+function collectingAnswer(event) {
+  if (event.target.value === 'Other') {
+    return ;
+  }
+  tempAnswer = event.target.value;
 }
 
 function answer() {
   let value = tempAnswer;
   tempAnswer = '';
   return value;
+}
+
+function collectingTextAreaValue(event) {
+  tempAnswer = event.target.value;
+  console.log(tempAnswer);
 }
 
 export default function SingleOptionAnswer(props) {
@@ -22,8 +34,14 @@ export default function SingleOptionAnswer(props) {
       {
         options.map((option, index) => {
           return (
+            option !== 'Other' ?
             <label htmlFor={index} key={index} >{option}
-              <input type='radio' name='option' value={option} id={index} onChange={event => tempAnswer = event.target.value} /><br/>
+              <input type='radio' name='option' value={option} id={index} onChange={collectingAnswer} /><br/>
+            </label>
+            :
+            <label htmlFor={index} key={index} >{option}
+              <input type='radio' name='option' value={option} id={index} onChange={collectingAnswer} /><br/>
+              <textarea defaultValue='Please specify:' onChange={collectingTextAreaValue} /><br/>
             </label>
           );
         })

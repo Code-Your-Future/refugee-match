@@ -4,10 +4,12 @@ let tempAnswers = [];
 let textAreaValue = '';
 let textAreaValueRequired = false;
 
+
 function collectingAnswer(event) {
   const eventValue = event.target.value;
   if (eventValue === 'Other') {
-    return (!textAreaValueRequired);
+    textAreaValueRequired = !(textAreaValueRequired);
+    return ;
   }
   const index = tempAnswers.indexOf(eventValue);
   index === -1 ? tempAnswers.push(eventValue) : tempAnswers.splice(index,1);
@@ -18,15 +20,19 @@ function collectingAnswer(event) {
   // event.preventDefault();
 }
 
+
 function collectingTextAreaValue(event) {
   textAreaValue = event.target.value;
   console.log(textAreaValue);
 }
 
 function answerChecking() {
-  if ((textAreaValueRequired) && (textAreaValue !== '')) {
-    return (tempAnswers.length < 1)
+  if (tempAnswers.length < 1) {
+    return true;
+  }else if (textAreaValueRequired) {
+      return (textAreaValue === '');
   }
+}
 
 function answers() {
   if (textAreaValue) {

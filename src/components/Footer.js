@@ -6,7 +6,7 @@ export default function Footer() {
         <div className="footer-images">
           <img src={require(`../images/refugeesSay.png`)} alt="" />
           <img src={require(`../images/universityOfOxford.png`)} alt="" />
-          <img src={require(`../images/codeYourFuture.png`)} alt="" />
+          <img src={require(`../images/cyf_brand.png`)} alt="" />
         </div>
         copyright
       </div>

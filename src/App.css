@@ -20,16 +20,17 @@
   width:200px;
   height:250px;
 }
+
 .App-container {
   display: flex;
-  min-height: 65vh;
+  min-height: 64vh;
   flex-direction: column;
   margin: 10px;   
 }
 
 .App-footer {
 
-  padding: 5px;
+  padding: 11px;
   background-color: #cce6ff;
 }
 
@@ -43,7 +44,12 @@
 }
 
 .footer-images img {
-  width:130px;
-  height:50px;
+  width:10%;
+  height:7%;
   padding:5px;
+}
+
+.footer-images img:nth-child(1){
+  width:6%;
+  height:6%;
 }

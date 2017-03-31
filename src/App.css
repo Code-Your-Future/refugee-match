@@ -21,6 +21,7 @@
   width: 200px;
   height: 250px;
 }
+
 .App-container {
   display: flex;
   min-height: 68vh;
@@ -46,8 +47,8 @@
 }
 
 .footer-images img {
-  width:130px;
-  height:50px;
+  width:10%;
+  height:7%;
   padding:5px;
 }
 
@@ -70,3 +71,9 @@ label {
   background-color: #cce6ff;
   cursor: pointer;
 }
+
+.footer-images img:nth-child(1){
+  width:6%;
+  height:6%;
+}
+

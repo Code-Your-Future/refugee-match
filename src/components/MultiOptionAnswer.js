@@ -20,7 +20,6 @@ function collectingAnswer(event) {
   // event.preventDefault();
 }
 
-
 function collectingTextAreaValue(event) {
   textAreaValue = event.target.value;
   console.log(textAreaValue);

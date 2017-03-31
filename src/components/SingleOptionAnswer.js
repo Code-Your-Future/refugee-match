@@ -8,6 +8,7 @@ function answerChecking() {
 
 function collectingAnswer(event) {
   if (event.target.value === 'Other') {
+    tempAnswer = '';
     return ;
   }
   tempAnswer = event.target.value;
@@ -47,7 +48,7 @@ export default function SingleOptionAnswer(props) {
         })
       }
       <input type='button' value='Previous' onClick={() => console.log('some thing to do')} />
-      <input type='button' value='Next' onClick={() => {answerChecking() ? alert('No answer provided'):handleSubmit(answer())}} />
+      <input type='button' value='Next' onClick={() => {answerChecking() ? alert('Please check \'Other\' value'):handleSubmit(answer())}} />
     </form>
   );
 }

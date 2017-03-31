@@ -6,18 +6,21 @@ export default function Question(props) {
   const question = props.question;
   const questionType = props.question.questionType;
   const handleSubmit = props.handleSubmit;
-  return (
-    <div>
-      {
-        questionType === 'single answer' ?
+  switch (questionType) {
+    // import then add case to add option
+    case 'single answer':
+      return (
         <SingleOptionAnswer
           question={question}
           handleSubmit={handleSubmit} />
-        : 
+      );
+    case 'multi answer':
+      return(
         <MultiOptionAnswer
           question={question}
           handleSubmit={handleSubmit} />
-      }
-    </div>
-  );
+      );
+    default:
+    break;
+  }
 }

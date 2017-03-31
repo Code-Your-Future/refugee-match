@@ -16,11 +16,32 @@ export default class App extends Component {
           options: ['Yes','No','Prefer not to say'],
           questionType: 'single answer'
         },
+        // {
+        //   question: 'Rank how important these factors are to you',
+        //   options: ['Job opportunities','Cost of living','Quality of schools','Level of crime'],
+        //   rank: [25, 50, 75, 100],
+        //   questionType: 'rank answer'
+        // },
         {
-          question: 'Which of these sectors would you be most likely to look for a job in?',
-          options: ['Administration','Manufacturing','Education','Construction','Retail','Business','Electricity, Gas and Water'],
+          question: 'Is it important for you to access any of these? (tick all that apply)',
+          options: ['English teaching','Practical training','University'],
           questionType: 'multi answer'
         },
+        {
+          question: 'Is it important for you to live near any of these places of worship?',
+          options: ['Mosque','Church','Synagogue','Hindu temple','Sikh temple','Buddhist temple','Other'],
+          questionType: 'single answer'
+        },
+        {
+          question: 'Which of these sectors would you be most likely to look for a job in?',
+          options: ['Administration', 'Manufacturing', 'Education', 'Construction', 'Retail', 'Health and Social work', 'Electricity, Gas and Water', 'Hotel and Restaurant', 'Agriculture', 'Business', 'Other'],
+          questionType: 'multi answer'
+        },
+        // {
+        //   question: 'Which of these pictures do you like the most?',
+        //   options: ['Countryside.png', 'oldcity.png', 'moderncity.png'],
+        //   questionType: 'single photo answer'
+        // },
         {
           question: 'Would you prefer to live in a city or the countryside?',
           options: ['City','Countryside','I don\'t mind'],
@@ -50,6 +71,19 @@ export default class App extends Component {
     // set the state to its defaul value
     if (questionNumber === questions.length) {
       // this should be rendering the result page which is in progress
+      fetch('http://localhost:9000/api', {
+        method: 'POST',
+        // mode: 'no-cors',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+        answers: this.state.answers
+      })
+    })
+    // .then((data) => console.log(data.json()))
+    // .catch((err) => console.error(err))
       return (
         this.setState(
           {
@@ -71,7 +105,6 @@ export default class App extends Component {
       )
     )
   } // this is the end of handleSubmit
-  
   // render componenets
   displayRender = () => {
     const questionNumber = this.state.questionNumber;
@@ -85,8 +118,8 @@ export default class App extends Component {
       );
     }
     return (
-      <Question 
-      question={questions[questionNumber]} 
+      <Question
+      question={questions[questionNumber]}
       handleSubmit={this.handleSubmit}/>
     );
   }

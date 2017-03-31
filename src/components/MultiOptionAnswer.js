@@ -27,7 +27,6 @@ function answerChecking() {
   if ((textAreaValueRequired) && (textAreaValue !== '')) {
     return (tempAnswers.length < 1)
   }
-}
 
 function answers() {
   if (textAreaValue) {
@@ -45,7 +44,7 @@ export default function MultiOptionAnswer(props) {
   const options = props.question.options;
   const handleSubmit = props.handleSubmit;
   return (
-    <form onSubmit={() => handleSubmit(answers())}>
+    <form>
       <h3>{question}</h3>
       {
         options.map((option, index) => {
@@ -62,7 +61,8 @@ export default function MultiOptionAnswer(props) {
           );
         })
       }
-      <input type='submit' value='Next'/>
+      <input type='button' value='Back' onClick={() => console.log('some thing to do')} />
+      <input type='button' value='Next' onClick={() => {answerChecking() ? alert('No answer provided'):handleSubmit(answers())}} />
     </form>
   );
 }

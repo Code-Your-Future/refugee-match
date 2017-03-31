@@ -1,30 +1,64 @@
 .App {
+  box-sizing: border-box;
   text-align: center;
-  padding: 10px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .App-header {
-  margin: auto;
-  height: 100px;
-  width: 100px;
-  background-color: #cce6ff;
+  box-sizing: border-box;
   padding: 10px;
-  color: white;
+  height: 80px;
+  width: 100%;
+  background-color: #cce6ff;
 }
 
 .App-intro {
   font-size: large;
 }
 
+.App-map img{
+  width: 200px;
+  height: 250px;
+}
+
+.App-container {
+  display: flex;
+  min-height: 68vh;
+  flex-direction: column;
+  margin: 10px;   
+}
+
 .App-footer {
-	padding: 10px;
-	margin: 10px;
-	background-color: #cce6ff;
+  margin: 0;
+  width: 100%;
+  background-color: #cce6ff;
+  height: 104px;
+}
+
+.language-btn{
+  margin: 2px;
 }
 
 .language-btn img {
-	width: 30px;
-	height: 22px;
+  width: 30px;
+  height: 22px;
+  padding: 3px;
+}
+
+.footer-images img {
+  width:10%;
+  height:7%;
+  padding:5px;
+}
+
+input[type=button],button {
+  border-radius: 75%;
+  padding: 10px;
+  margin: 10px;
+  width: 80px;
+  height: auto;
+  background-color: #cce6ff;
 }
 
 label {
@@ -36,6 +70,11 @@ label {
   text-align: right;
   background-color: #cce6ff;
   cursor: pointer;
+}
+
+.footer-images img:nth-child(1){
+  width:6%;
+  height:6%;
 }
 
 textarea {

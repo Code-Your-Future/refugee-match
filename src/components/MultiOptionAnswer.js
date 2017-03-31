@@ -28,6 +28,7 @@ function answerChecking() {
     return (tempAnswers.length < 1)
   }
 
+
 function answers() {
   if (textAreaValue) {
     tempAnswers.push(textAreaValue);

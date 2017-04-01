@@ -55,12 +55,12 @@ export default function MultiOptionAnswer(props) {
         options.map((option, index) => {
           return (
             option !== 'Other' ?          
-            <label key={index} >{option}
-              <input type='checkbox' name='option' value={option} onChange={collectingAnswer} /><br/>
+            <label key={index} >
+              <input type='checkbox' name='option' value={option} onChange={collectingAnswer} />{option}<br/>
             </label>
             :
-            <label key={index} >{option}
-              <input type='checkbox' name='option' value={option} onChange={collectingAnswer} /><br/>
+            <label key={index} >
+              <input type='checkbox' name='option' value={option} onChange={collectingAnswer} />{option}<br/>
               <textarea defaultValue='Please specify:' onChange={collectingTextAreaValue} /><br/>
             </label>
           );

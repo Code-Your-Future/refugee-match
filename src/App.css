@@ -75,7 +75,7 @@ label {
   border: 2px #787bb6 dashed;
   display: block;
   width: 220px;
-  text-align: right;
+  text-align: left;
   background-color: #cce6ff;
   cursor: pointer;
 }

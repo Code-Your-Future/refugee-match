@@ -36,12 +36,12 @@ export default function SingleOptionAnswer(props) {
         options.map((option, index) => {
           return (
             option !== 'Other' ?
-            <label htmlFor={index} key={index} >{option}
-              <input type='radio' name='option' value={option} id={index} onChange={collectingAnswer} /><br/>
+            <label htmlFor={index} key={index} >
+              <input type='radio' name='option' value={option} id={index} onChange={collectingAnswer} />{option}<br/>
             </label>
             :
-            <label htmlFor={index} key={index} >{option}
-              <input type='radio' name='option' value={option} id={index} onChange={collectingAnswer} /><br/>
+            <label htmlFor={index} key={index} >
+              <input type='radio' name='option' value={option} id={index} onChange={collectingAnswer} />{option}<br/>
               <textarea defaultValue='Please specify:' onChange={collectingTextAreaValue} /><br/>
             </label>
           );

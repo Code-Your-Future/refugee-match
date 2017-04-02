@@ -81,9 +81,9 @@ export default class App extends Component {
         body: JSON.stringify({
         answers: this.state.answers
       })
-    })
-    // .then((data) => console.log(data.json()))
-    // .catch((err) => console.error(err))
+    }).then(response => console.log(response.json()))
+      .then(data => console.log(data))
+      .catch((err) => console.error(err));
       return (
         this.setState(
           {

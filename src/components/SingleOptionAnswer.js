@@ -1,27 +1,37 @@
 import React from 'react';
 
-let tempAnswer = '';
+let tempAnswer = {
+      answerId: null,
+      answer: null
+    };
+let textAreaValue = null;
 
 function answerChecking() {
-  return (tempAnswer === '');
+  return (tempAnswer.answerId === null);
 }
 
 function collectingAnswer(event) {
-  if (event.target.value === 'Other') {
-    tempAnswer = '';
-    return ;
-  }
-  tempAnswer = event.target.value;
+  tempAnswer.answer = event.target.value;
+  tempAnswer.answerId = event.target.id;
 }
 
 function answer() {
+  if (tempAnswer.answer === 'Other') {
+    if (textAreaValue !== null) {
+      tempAnswer.answer = textAreaValue;
+    }
+  }
   let value = tempAnswer;
-  tempAnswer = '';
+  tempAnswer = {
+    answerId: null,
+    answer: null
+  };
+  textAreaValue = null;
   return value;
 }
 
 function collectingTextAreaValue(event) {
-  tempAnswer = event.target.value;
+  textAreaValue = event.target.value;
   console.log(tempAnswer);
 }
 
@@ -33,22 +43,46 @@ export default function SingleOptionAnswer(props) {
     <form>
       <h3>{question}</h3>
       {
-        options.map((option, index) => {
+        options.map((answer, index) => {
           return (
-            option !== 'Other' ?
-            <label htmlFor={index} key={index} >
-              <input type='radio' name='option' value={option} id={index} onChange={collectingAnswer} />{option}<br/>
-            </label>
-            :
-            <label htmlFor={index} key={index} >
-              <input type='radio' name='option' value={option} id={index} onChange={collectingAnswer} />{option}<br/>
-              <textarea defaultValue='Please specify:' onChange={collectingTextAreaValue} /><br/>
-            </label>
+            answer.answer !== 'Other' ? (
+              <label htmlFor={answer.answerId} key={index} >
+                <input
+                  type='radio'
+                  name='answer'
+                  value={answer.answer}
+                  id={answer.answerId}
+                  onChange={collectingAnswer} />
+                {answer.answer}
+                <br/>
+              </label>
+            ) : (
+              <label htmlFor={answer.answerId} key={index} >
+                <input
+                  type='radio'
+                  name='answer'
+                  value={answer.answer}
+                  id={answer.answerId}
+                  onChange={collectingAnswer} />
+                {answer.answer}
+                <br/>
+                <textarea
+                  defaultValue='Please specify:'
+                  onChange={collectingTextAreaValue} />
+                <br/>
+              </label>
+            )
           );
         })
       }
-      <input type='button' value='Previous' onClick={() => console.log('some thing to do')} />
-      <input type='button' value='Next' onClick={() => {answerChecking() ? alert('Please check \'Other\' value'):handleSubmit(answer())}} />
+      <input
+        type='button'
+        value='Previous'
+        onClick={() => console.log('some thing to do')} />
+      <input
+        type='button'
+        value='Next'
+        onClick={() => {answerChecking() ? alert('Please choose answer'):handleSubmit(answer())}} />
     </form>
   );
 }

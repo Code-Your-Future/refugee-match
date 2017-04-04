@@ -21,12 +21,17 @@ export default class App extends Component {
           ],
           questionType: 'single answer'
         },
-        // {
-        //   question: 'Rank how important these factors are to you',
-        //   options: ['Job opportunities','Cost of living','Quality of schools','Level of crime'],
-        //   rank: [25, 50, 75, 100],
-        //   questionType: 'rank answer'
-        // },
+        {
+          questionId: 'q2',
+          question: 'Rank how important these factors are to you',
+          options: [
+            {answerId: 'q2a1', answer: 'Job opportunities'},
+            {answerId: 'q2a2', answer: 'Cost of living'},
+            {answerId: 'q2a3', answer: 'Quality of schools'},
+            {answerId: 'q2a4', answer: 'Level of crime'}
+          ],
+          questionType: 'ranking answer'
+        },
         {
           questionId: 'q3',
           question: 'Is it important for you to access any of these? (tick all that apply)',
@@ -52,6 +57,7 @@ export default class App extends Component {
           questionType: 'single answer'
         },
         {
+          questionId: 'q5',
           question: 'Which of these sectors would you be most likely to look for a job in?',
           options: [
             {answerId: 'q5a1', answer: 'Administration'},
@@ -68,12 +74,13 @@ export default class App extends Component {
           ],
           questionType: 'multi answer'
         },
-        // // {
-        // //   question: 'Which of these pictures do you like the most?',
-        // //   options: ['Countryside.png', 'oldcity.png', 'moderncity.png'],
-        // //   questionType: 'single photo answer'
-        // // },
+        // {
+        //   question: 'Which of these pictures do you like the most?',
+        //   options: ['Countryside.png', 'oldcity.png', 'moderncity.png'],
+        //   questionType: 'single photo answer'
+        // },
         {
+          questionId: 'q7',
           question: 'Would you prefer to live in a city or the countryside?',
           options: [
             {answerId: 'q7a1', answer: 'City'},
@@ -118,7 +125,7 @@ export default class App extends Component {
     }
     questionNumber++;
     answers.push(answer);
-    console.log(questionNumber,'   ',answers);
+    console.log(answers);
     return (
       this.setState(
         {

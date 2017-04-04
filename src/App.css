@@ -89,10 +89,18 @@ form{
 }
 
 input{
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 textarea {
   width: 210px;
   height: 250px;
+}
+
+input[type=button].rankQuestion {
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin: 10px auto;
+  border-radius: 0%;
 }

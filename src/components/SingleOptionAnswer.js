@@ -4,32 +4,34 @@ let tempAnswer = {
       answerId: null,
       answer: null
     };
+let textAreaValue = null;
 
 function answerChecking() {
   return (tempAnswer.answerId === null);
 }
 
 function collectingAnswer(event) {
-  if (event.target.value === 'Other') {
-    tempAnswer.answerId = event.target.id;
-    tempAnswer.answer = null;
-    return ;
-  }
   tempAnswer.answer = event.target.value;
   tempAnswer.answerId = event.target.id;
 }
 
 function answer() {
+  if (tempAnswer.answer === 'Other') {
+    if (textAreaValue !== null) {
+      tempAnswer.answer = textAreaValue;
+    }
+  }
   let value = tempAnswer;
   tempAnswer = {
     answerId: null,
     answer: null
   };
+  textAreaValue = null;
   return value;
 }
 
 function collectingTextAreaValue(event) {
-  tempAnswer.answer = event.target.value;
+  textAreaValue = event.target.value;
   console.log(tempAnswer);
 }
 
@@ -44,31 +46,31 @@ export default function SingleOptionAnswer(props) {
         options.map((answer, index) => {
           return (
             answer.answer !== 'Other' ? (
-            <label htmlFor={answer.answerId} key={index} >
-              <input
-                type='radio'
-                name='answer'
-                value={answer.answer}
-                id={answer.answerId}
-                onChange={collectingAnswer} />
-              {answer.answer}
-              <br/>
-            </label>
+              <label htmlFor={answer.answerId} key={index} >
+                <input
+                  type='radio'
+                  name='answer'
+                  value={answer.answer}
+                  id={answer.answerId}
+                  onChange={collectingAnswer} />
+                {answer.answer}
+                <br/>
+              </label>
             ) : (
-            <label htmlFor={answer.answerId} key={index} >
-              <input
-                type='radio'
-                name='answer'
-                value={answer.answer}
-                id={answer.answerId}
-                onChange={collectingAnswer} />
-              {answer.answer}
-              <br/>
-              <textarea
-                defaultValue='Please specify:'
-                onChange={collectingTextAreaValue} />
-              <br/>
-            </label>
+              <label htmlFor={answer.answerId} key={index} >
+                <input
+                  type='radio'
+                  name='answer'
+                  value={answer.answer}
+                  id={answer.answerId}
+                  onChange={collectingAnswer} />
+                {answer.answer}
+                <br/>
+                <textarea
+                  defaultValue='Please specify:'
+                  onChange={collectingTextAreaValue} />
+                <br/>
+              </label>
             )
           );
         })

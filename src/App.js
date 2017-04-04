@@ -27,16 +27,16 @@ export default class App extends Component {
         //   rank: [25, 50, 75, 100],
         //   questionType: 'rank answer'
         // },
-        // {
-        //   questionId: 'q3',
-        //   question: 'Is it important for you to access any of these? (tick all that apply)',
-        //   options: [
-        //     {optionId: 'q3a1', name: 'English teaching'},
-        //     {optionId: 'q3a2', name: 'Practical training'},
-        //     {optionId: 'q3a3', name: 'University'}
-        //   ],
-        //   questionType: 'multi answer'
-        // },
+        {
+          questionId: 'q3',
+          question: 'Is it important for you to access any of these? (tick all that apply)',
+          options: [
+            {answerId: 'q3a1', answer: 'English teaching'},
+            {answerId: 'q3a2', answer: 'Practical training'},
+            {answerId: 'q3a3', answer: 'University'}
+          ],
+          questionType: 'multi answer'
+        },
         {
           questionId: 'q4',
           question: 'Is it important for you to live near any of these places of worship?',
@@ -51,21 +51,37 @@ export default class App extends Component {
           ],
           questionType: 'single answer'
         },
-        // {
-        //   question: 'Which of these sectors would you be most likely to look for a job in?',
-        //   options: ['Administration', 'Manufacturing', 'Education', 'Construction', 'Retail', 'Health and Social work', 'Electricity, Gas and Water', 'Hotel and Restaurant', 'Agriculture', 'Business', 'Other'],
-        //   questionType: 'multi answer'
-        // },
+        {
+          question: 'Which of these sectors would you be most likely to look for a job in?',
+          options: [
+            {answerId: 'q5a1', answer: 'Administration'},
+            {answerId: 'q5a2', answer: 'Manufacturing'},
+            {answerId: 'q5a3', answer: 'Education'},
+            {answerId: 'q5a4', answer: 'Construction'},
+            {answerId: 'q5a5', answer: 'Retail'},
+            {answerId: 'q5a6', answer: 'Health and Social work'},
+            {answerId: 'q5a7', answer: 'Electricity, Gas and Water'},
+            {answerId: 'q5a8', answer: 'Hotel and Restaurant'},
+            {answerId: 'q5a9', answer: 'Agriculture'},
+            {answerId: 'q5a10', answer: 'Business'},
+            {answerId: 'q5a11', answer: 'Other'}
+          ],
+          questionType: 'multi answer'
+        },
         // // {
         // //   question: 'Which of these pictures do you like the most?',
         // //   options: ['Countryside.png', 'oldcity.png', 'moderncity.png'],
         // //   questionType: 'single photo answer'
         // // },
-        // {
-        //   question: 'Would you prefer to live in a city or the countryside?',
-        //   options: ['City','Countryside','I don\'t mind'],
-        //   questionType: 'single answer'
-        // }
+        {
+          question: 'Would you prefer to live in a city or the countryside?',
+          options: [
+            {answerId: 'q7a1', answer: 'City'},
+            {answerId: 'q7a2', answer: 'Countryside'},
+            {answerId: 'q7a3', answer: 'I don\'t mind'}
+          ],
+          questionType: 'single answer'
+        }
       ],
       // for pushing the ansers
       answers: [],

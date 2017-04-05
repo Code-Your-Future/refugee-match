@@ -7,6 +7,7 @@ export default class RankingAnswer extends Component {
       question: this.props.question.question,
       options: this.props.question.options,
       handleSubmit: this.props.handleSubmit,
+      questionText: 'Now choose which one is the most important from the rest',
       answers: []
       
     }
@@ -21,11 +22,12 @@ export default class RankingAnswer extends Component {
     }
     answers.push(objectValue);
     options = options.filter(value => value.answerId !== objectValue.answerId);
-    if (options.length < 1) {
+    if (options.length === 1) {
+      answers.push(options[0]);
       handleSubmit(answers);
       return;
     }
-    this.setState({answers: answers, options: options})
+    this.setState({answers: answers, options: options, question: this.state.questionText})
   }
   displayRender = () => {
     const options = this.state.options;

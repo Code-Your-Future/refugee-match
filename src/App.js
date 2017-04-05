@@ -74,11 +74,16 @@ export default class App extends Component {
           ],
           questionType: 'multi answer'
         },
-        // {
-        //   question: 'Which of these pictures do you like the most?',
-        //   options: ['Countryside.png', 'oldcity.png', 'moderncity.png'],
-        //   questionType: 'single photo answer'
-        // },
+        {
+          question: 'Which of these pictures do you like the most?',
+          options: [
+                
+               {answerId: 'q6a1', answer: 'countryside'},
+               {answerId: 'q6a2', answer: 'oldcity'},
+               {answerId: 'q6a3', answer: 'moderncity'}
+          ],
+          questionType: 'picture answer'
+        },
         {
           questionId: 'q7',
           question: 'Would you prefer to live in a city or the countryside?',

@@ -2,21 +2,19 @@
 /*font-family: 'Roboto', sans-serif;*/
 
 html{
-  background: url('https://images.template.net/wp-content/uploads/2015/08/Extraordinary-Beach-Background-Free-Download.png') no-repeat;
   background-size: 100% 100%;
 }
 .App {
   box-sizing: border-box;
   text-align: center;
   padding: 10px;
-
 }
 
 .App-header {
   margin: auto;
   /*background-color: #cce6ff;*/
   padding: 8px;
-  color: white;
+  color: black;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 24px;
@@ -33,7 +31,7 @@ html{
 
 .App-container {
   display: flex;
-  min-height: 62vh;
+  min-height: 68vh;
   flex-direction: column;
   margin: 10px;   
 }
@@ -41,6 +39,7 @@ html{
 .App-footer {
   font-size: 10px;
   padding: 11px;
+  display: inline-block;
  /* background-color: #cce6ff;*/
 }
 
@@ -72,7 +71,6 @@ input[type=button],button {
 label {
   padding: 10px;
   margin: 15px auto;
-  border: 2px #787bb6 dashed;
   display: block;
   width: 220px;
   text-align: left;
@@ -86,6 +84,9 @@ label {
 }
 form{
   font-family: 'Roboto', sans-serif;
+  border: 2px #787bb6 dashed;
+  width: 300px;
+  margin: auto;
 }
 
 input{
@@ -104,3 +105,13 @@ input[type=button].rankQuestion {
   margin: 10px auto;
   border-radius: 0%;
 }
+
+input[type=radio].pictureQuestion {
+  display: block;
+  width: 60px;
+  height: 50px;
+  margin: 2px auto;
+  
+  
+}
+

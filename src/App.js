@@ -15,9 +15,9 @@ export default class App extends Component {
           questionId: 'q1',
           question: 'Are you a refugee or in a refugee-like situation?',
           options: [
-            {answerId: 'q1a1', answer: 'Yes'},
-            {answerId: 'q1a2', answer: 'No'},
-            {answerId: 'q1a3', answer: 'Prefer not to say'}
+            {answerId: 'q1a1', answer: 'Yes', answerValue: 0},
+            {answerId: 'q1a2', answer: 'No', answerValue: 0},
+            {answerId: 'q1a3', answer: 'Prefer not to say', answerValue: 0}
           ],
           questionType: 'single answer'
         },
@@ -25,10 +25,10 @@ export default class App extends Component {
           questionId: 'q2',
           question: 'Rank how important these factors are to you',
           options: [
-            {answerId: 'q2a1', answer: 'Job opportunities'},
-            {answerId: 'q2a2', answer: 'Cost of living'},
-            {answerId: 'q2a3', answer: 'Quality of schools'},
-            {answerId: 'q2a4', answer: 'Level of crime'}
+            {answerId: 'q2a1', answer: 'Job opportunities', answerValue: 0.25},
+            {answerId: 'q2a2', answer: 'Cost of living', answerValue: 0.25},
+            {answerId: 'q2a3', answer: 'Quality of schools', answerValue: 0.25},
+            {answerId: 'q2a4', answer: 'Level of crime', answerValue: 0.25}
           ],
           questionType: 'ranking answer'
         },
@@ -36,9 +36,9 @@ export default class App extends Component {
           questionId: 'q3',
           question: 'Is it important for you to access any of these? (tick all that apply)',
           options: [
-            {answerId: 'q3a1', answer: 'English teaching'},
-            {answerId: 'q3a2', answer: 'Practical training'},
-            {answerId: 'q3a3', answer: 'University'}
+            {answerId: 'q3a1', answer: 'English teaching', answerValue: 0},
+            {answerId: 'q3a2', answer: 'Practical training', answerValue: 0},
+            {answerId: 'q3a3', answer: 'University', answerValue: 0}
           ],
           questionType: 'multi answer'
         },
@@ -46,13 +46,13 @@ export default class App extends Component {
           questionId: 'q4',
           question: 'Is it important for you to live near any of these places of worship?',
           options: [
-            {answerId: 'q4a1', answer: 'Mosque'},
-            {answerId: 'q4a2', answer: 'Church'},
-            {answerId: 'q4a3', answer: 'Synagogue'},
-            {answerId: 'q4a4', answer: 'Hindu temple'},
-            {answerId: 'q4a5', answer: 'Sikh temple'},
-            {answerId: 'q4a6', answer: 'Buddhist temple'},
-            {answerId: 'q4a7', answer: 'Other'}
+            {answerId: 'q4a1', answer: 'Mosque', answerValue: 0},
+            {answerId: 'q4a2', answer: 'Church', answerValue: 0},
+            {answerId: 'q4a3', answer: 'Synagogue', answerValue: 0},
+            {answerId: 'q4a4', answer: 'Hindu temple', answerValue: 0},
+            {answerId: 'q4a5', answer: 'Sikh temple', answerValue: 0},
+            {answerId: 'q4a6', answer: 'Buddhist temple', answerValue: 0},
+            {answerId: 'q4a7', answer: 'Other', answerValue: 0}
           ],
           questionType: 'single answer'
         },
@@ -60,27 +60,26 @@ export default class App extends Component {
           questionId: 'q5',
           question: 'Which of these sectors would you be most likely to look for a job in?',
           options: [
-            {answerId: 'q5a1', answer: 'Administration'},
-            {answerId: 'q5a2', answer: 'Manufacturing'},
-            {answerId: 'q5a3', answer: 'Education'},
-            {answerId: 'q5a4', answer: 'Construction'},
-            {answerId: 'q5a5', answer: 'Retail'},
-            {answerId: 'q5a6', answer: 'Health and Social work'},
-            {answerId: 'q5a7', answer: 'Electricity, Gas and Water'},
-            {answerId: 'q5a8', answer: 'Hotel and Restaurant'},
-            {answerId: 'q5a9', answer: 'Agriculture'},
-            {answerId: 'q5a10', answer: 'Business'},
-            {answerId: 'q5a11', answer: 'Other'}
+            {answerId: 'q5a1', answer: 'Administration', answerValue: 0},
+            {answerId: 'q5a2', answer: 'Manufacturing', answerValue: 0},
+            {answerId: 'q5a3', answer: 'Education', answerValue: 0},
+            {answerId: 'q5a4', answer: 'Construction', answerValue: 0},
+            {answerId: 'q5a5', answer: 'Retail', answerValue: 0},
+            {answerId: 'q5a6', answer: 'Health and Social work', answerValue: 0},
+            {answerId: 'q5a7', answer: 'Electricity, Gas and Water', answerValue: 0},
+            {answerId: 'q5a8', answer: 'Hotel and Restaurant', answerValue: 0},
+            {answerId: 'q5a9', answer: 'Agriculture', answerValue: 0},
+            {answerId: 'q5a10', answer: 'Business', answerValue: 0},
+            {answerId: 'q5a11', answer: 'Other', answerValue: 0}
           ],
           questionType: 'multi answer'
         },
         {
           question: 'Which of these pictures do you like the most?',
           options: [
-                
-               {answerId: 'q6a1', answer: 'countryside'},
-               {answerId: 'q6a2', answer: 'oldcity'},
-               {answerId: 'q6a3', answer: 'moderncity'}
+            {answerId: 'q6a1', answer: 'countryside', answerValue: 0},
+            {answerId: 'q6a2', answer: 'oldcity', answerValue: 0},
+            {answerId: 'q6a3', answer: 'moderncity', answerValue: 0}
           ],
           questionType: 'picture answer'
         },
@@ -88,9 +87,9 @@ export default class App extends Component {
           questionId: 'q7',
           question: 'Would you prefer to live in a city or the countryside?',
           options: [
-            {answerId: 'q7a1', answer: 'City'},
-            {answerId: 'q7a2', answer: 'Countryside'},
-            {answerId: 'q7a3', answer: 'I don\'t mind'}
+            {answerId: 'q7a1', answer: 'City', answerValue: 0},
+            {answerId: 'q7a2', answer: 'Countryside', answerValue: 0},
+            {answerId: 'q7a3', answer: 'I don\'t mind', answerValue: 0}
           ],
           questionType: 'single answer'
         }

@@ -45,7 +45,7 @@ export default function PictureAnswer(props) {
                   value={answer.answer}
                   id={answer.answerId}
                   onChange={collectingAnswer} />
-                  <img src={require(`../images/${answer.answer}.png`)} alt={answer.answer} />
+                  <img className = 'picAnswer' src={require(`../images/${answer.answer}.png`)} alt={answer.answer} />
               </label>
           );
         })

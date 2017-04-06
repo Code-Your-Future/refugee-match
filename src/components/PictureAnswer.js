@@ -6,7 +6,6 @@ let tempAnswer = {
       answerValue: 0
     };
 
-
 function answerChecking() {
   return (tempAnswer.answerId === null);
 }
@@ -27,7 +26,6 @@ function answer() {
   return value;
 }
 
-
 export default function PictureAnswer(props) {
   const question = props.question.question;
   const options = props.question.options;
@@ -38,7 +36,7 @@ export default function PictureAnswer(props) {
       {
         options.map((answer, index) => {
           return (
-            <label htmlFor={answer.answerId} key={index} >
+            <label className = 'picLabel' htmlFor={answer.answerId} key={index} >
                 <input
                   className='pictureQuestion'
                   type='radio'
@@ -46,8 +44,9 @@ export default function PictureAnswer(props) {
                   value={answer.answer}
                   id={answer.answerId}
                   onChange={collectingAnswer} />
-                  <img className='picAnswer' src={require(`../images/${answer.answer}.png`)} alt={answer.answer} />
-              </label>
+                <img className='picAnswer' src={require(`../images/${answer.answer}.png`)} alt={answer.answer} />
+            </label>
+
           );
         })
       }

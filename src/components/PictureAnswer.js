@@ -2,7 +2,8 @@ import React from 'react';
 
 let tempAnswer = {
       answerId: null,
-      answer: null
+      answer: null,
+      answerValue: 0
     };
 
 
@@ -13,16 +14,16 @@ function answerChecking() {
 function collectingAnswer(event) {
   tempAnswer.answer = event.target.value;
   tempAnswer.answerId = event.target.id;
+  tempAnswer.answerValue = 1;
 }
 
 function answer() {
-  
   let value = tempAnswer;
   tempAnswer = {
     answerId: null,
-    answer: null
+    answer: null,
+    answerValue: 0
   };
-  
   return value;
 }
 
@@ -45,7 +46,7 @@ export default function PictureAnswer(props) {
                   value={answer.answer}
                   id={answer.answerId}
                   onChange={collectingAnswer} />
-                  <img className = 'picAnswer' src={require(`../images/${answer.answer}.png`)} alt={answer.answer} />
+                  <img className='picAnswer' src={require(`../images/${answer.answer}.png`)} alt={answer.answer} />
               </label>
           );
         })

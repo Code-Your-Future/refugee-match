@@ -2,7 +2,8 @@ import React from 'react';
 
 let tempAnswer = {
       answerId: null,
-      answer: null
+      answer: null,
+      answerValue: 0
     };
 let textAreaValue = null;
 
@@ -13,6 +14,7 @@ function answerChecking() {
 function collectingAnswer(event) {
   tempAnswer.answer = event.target.value;
   tempAnswer.answerId = event.target.id;
+  tempAnswer.answerValue = 1;
 }
 
 function answer() {
@@ -24,7 +26,8 @@ function answer() {
   let value = tempAnswer;
   tempAnswer = {
     answerId: null,
-    answer: null
+    answer: null,
+    answerValue: 0
   };
   textAreaValue = null;
   return value;

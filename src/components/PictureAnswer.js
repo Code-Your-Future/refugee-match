@@ -37,7 +37,7 @@ export default function PictureAnswer(props) {
       {
         options.map((answer, index) => {
           return (
-            <label htmlFor={answer.answerId} key={index} >
+            <label className = 'picLabel' htmlFor={answer.answerId} key={index} >
                 <input
                   className='pictureQuestion'
                   type='radio'
@@ -46,7 +46,7 @@ export default function PictureAnswer(props) {
                   id={answer.answerId}
                   onChange={collectingAnswer} />
                   <img className = 'picAnswer' src={require(`../images/${answer.answer}.png`)} alt={answer.answer} />
-              </label>
+            </label>
           );
         })
       }

@@ -118,5 +118,10 @@ input[type=radio].pictureQuestion {
 }
 
 input:checked.pictureQuestion + img {
+    border:5px solid green;
     box-shadow: 5px 5px 5px green;
+}
+
+.picLabel {
+  background-color: white;
 }

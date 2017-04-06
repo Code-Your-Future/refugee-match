@@ -8,26 +8,30 @@ export default class RankingAnswer extends Component {
       options: this.props.question.options,
       handleSubmit: this.props.handleSubmit,
       questionText: 'Now choose which one is the most important from the rest',
-      answers: []
+      answers: [],
+      answersValue:[1, 0.75, 0.5, 0.25]
       
     }
   }
   onclickHandler = (event) => {
     const handleSubmit = this.state.handleSubmit;
+    let answersValue = this.state.answersValue;
     let answers = this.state.answers;
     let options = this.state.options;
     const objectValue = {
-      answerId: event.target.id,
-      answer: event.target.value
-    }
+            answerId: event.target.id,
+            answer: event.target.value,
+            answerValue: answersValue[0]
+          }
     answers.push(objectValue);
+    answersValue.shift();
     options = options.filter(value => value.answerId !== objectValue.answerId);
     if (options.length === 1) {
       answers.push(options[0]);
       handleSubmit(answers);
       return;
     }
-    this.setState({answers: answers, options: options, question: this.state.questionText})
+    this.setState({answers: answers, options: options, answersValue: answersValue, question: this.state.questionText})
   }
   displayRender = () => {
     const options = this.state.options;

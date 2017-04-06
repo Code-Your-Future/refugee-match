@@ -128,7 +128,11 @@ export default class App extends Component {
       )
     }
     questionNumber++;
-    answers.push(answer);
+    if (Array.isArray(answer)) {
+      answer.forEach(value => answers.push(value))
+    }else {
+      answers.push(answer);
+    }
     console.log(answers);
     return (
       this.setState(

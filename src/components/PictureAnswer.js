@@ -36,7 +36,7 @@ export default function PictureAnswer(props) {
       {
         options.map((answer, index) => {
           return (
-            <label className = 'picLabel' htmlFor={answer.answerId} key={index} >
+            <label className='picLabel' htmlFor={answer.answerId} key={index} >
                 <input
                   className='pictureQuestion'
                   type='radio'

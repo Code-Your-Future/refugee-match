@@ -38,6 +38,15 @@ function collectingTextAreaValue(event) {
   console.log(tempAnswer);
 }
 
+function resetValues() {
+  tempAnswer = {
+    answerId: null,
+    answer: null,
+    answerValue: 0
+  };
+  textAreaValue = null;
+}
+
 export default function SingleOptionAnswer(props) {
   const question = props.question.question;
   const options = props.question.options;
@@ -85,7 +94,7 @@ export default function SingleOptionAnswer(props) {
         type='button'
         value='Previous'
         className = 'prevBtn'
-        onClick={handlePrevious} />
+        onClick={() => handlePrevious(resetValues())} />
       <input
         type='button'
         value='Next'

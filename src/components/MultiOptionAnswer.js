@@ -37,6 +37,11 @@ function answers() {
   return value; 
 }
 
+function resetValues() {
+  tempAnswers = [];
+  textAreaValue = null;
+}
+
 export default function MultiOptionAnswer(props) {
   const question = props.question.question;
   const options = props.question.options;
@@ -82,7 +87,7 @@ export default function MultiOptionAnswer(props) {
         type='button'
         value='Previous'
         className = 'prevBtn'
-        onClick={handlePrevious} />
+        onClick={() => handlePrevious(resetValues())} />
       <input
         type='button'
         value='Next'

@@ -5,7 +5,7 @@ export default function Languages(props) {
   const whenClick = props.whenClick;
   return (
     <div className="App-map">
-      <h2>The UK and You</h2>
+      
       <div>
         <p>
           This tool is designed to inform you about the different areas of the United Kingdom.

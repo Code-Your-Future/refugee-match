@@ -126,13 +126,16 @@ input:checked.pictureQuestion + img {
   background-color: white;
 }
 
+/*result.js style start*/
 .progress {
   width: 200px;
   border-bottom: 10px solid lightblue;
   position: relative;
+  margin: auto;
 }
 
 .complete {
   border-bottom: 10px solid blue;
   position: absolute;
 }
+/*result.js style end*/

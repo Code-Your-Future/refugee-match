@@ -54,7 +54,7 @@ export default function PictureAnswer(props) {
         type='button'
         value='Previous'
         className = 'prevBtn'
-        onClick={() => console.log('some thing to do')} />
+        onClick={handlePrevious} />
       <input
         type='button'
         value='Next'

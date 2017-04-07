@@ -3,6 +3,7 @@ import './App.css';
 import Languages from './components/Languages';
 import Question from './components/Question';
 import Footer from './components/Footer';
+import Result from './components/Result';
 
 export default class App extends Component {
   constructor(props) {
@@ -117,7 +118,7 @@ export default class App extends Component {
     // set the state to its defaul value
     if (questionNumber === questions.length) {
       // this should be rendering the result page which is in progress
-      this.PostToAPI('http://localhost:9000/api');
+      this.PostToAPI('http://localhost:8080/api');
       return (
         this.setState(
           {
@@ -163,7 +164,12 @@ export default class App extends Component {
     const questionNumber = this.state.questionNumber;
     const questions = this.state.questions;
     const languagesList = this.state.languagesList;
-    if (questionNumber === -1 || questionNumber >= questions.length) {
+    if (questionNumber >= questions.length) {
+      return (
+          <Result />
+        );
+    }
+    if (questionNumber === -1) {
       return (
         <Languages
         languagesList={languagesList}

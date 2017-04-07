@@ -9,7 +9,6 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // this state is just for displaying the outcomes (depend on the databases)
       languagesList: ['English','Arabic','Francais'],
       questions:[
         {
@@ -95,14 +94,10 @@ export default class App extends Component {
           questionType: 'single answer'
         }
       ],
-      // for pushing the ansers
       answers: [],
-      // to display each question at one time
       questionNumber: -1,
-      // this is the current answer in the current page (in case if the quetion is MultiOptionQuestion)  :)
     }
   }
-
     // for the language button, checkbox and radiobox answers
   handleSubmit = (answer) => {
     // list of state we have
@@ -128,12 +123,14 @@ export default class App extends Component {
         )
       )
     }
+    
+    // if (Array.isArray(answer)) {
+    //   answer.forEach(value => answers.push(value))
+    // }else {
+    //   answers.push(answer);
+    // }
+    answers[questionNumber] = answer;
     questionNumber++;
-    if (Array.isArray(answer)) {
-      answer.forEach(value => answers.push(value))
-    }else {
-      answers.push(answer);
-    }
     console.log(answers);
     return (
       this.setState(
@@ -179,7 +176,8 @@ export default class App extends Component {
     return (
       <Question
       question={questions[questionNumber]}
-      handleSubmit={this.handleSubmit}/>
+      handleSubmit={this.handleSubmit}
+      handlePrevious={this.handlePrevious}/>
     );
   }
   render() {
@@ -199,5 +197,17 @@ export default class App extends Component {
         </div>
       </div>
     );
+  }
+  changeInToOneArray = () => {
+
+  }
+  handlePrevious = () => {
+    let questionNumber = this.state.questionNumber;
+    questionNumber--;
+    this.setState(
+      {
+        questionNumber: questionNumber,
+      }
+    )
   }
 }

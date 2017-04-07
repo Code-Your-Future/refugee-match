@@ -50,24 +50,26 @@ export default function SingleOptionAnswer(props) {
           return (
             answer.answer !== 'Other' ? (
               <label htmlFor={answer.answerId} key={index} >
+                {answer.answer}
                 <input
                   type='radio'
                   name='answer'
+                  className='radioBtn'
                   value={answer.answer}
                   id={answer.answerId}
                   onChange={collectingAnswer} />
-                {answer.answer}
-                <br/>
+               <br/>
               </label>
             ) : (
               <label htmlFor={answer.answerId} key={index} >
+                {answer.answer}
                 <input
                   type='radio'
                   name='answer'
+                  className='radioBtn'
                   value={answer.answer}
                   id={answer.answerId}
                   onChange={collectingAnswer} />
-                {answer.answer}
                 <br/>
                 <textarea
                   defaultValue='Please specify:'
@@ -81,10 +83,12 @@ export default function SingleOptionAnswer(props) {
       <input
         type='button'
         value='Previous'
+        className = 'prevBtn'
         onClick={() => console.log('some thing to do')} />
       <input
         type='button'
         value='Next'
+        className = 'nextBtn'
         onClick={() => {answerChecking() ? alert('Please choose answer'):handleSubmit(answer())}} />
     </form>
   );

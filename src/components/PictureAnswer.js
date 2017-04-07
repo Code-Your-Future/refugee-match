@@ -53,10 +53,12 @@ export default function PictureAnswer(props) {
       <input
         type='button'
         value='Previous'
+        className = 'prevBtn'
         onClick={() => console.log('some thing to do')} />
       <input
         type='button'
         value='Next'
+        className = 'nextBtn'
         onClick={() => {answerChecking() ? alert('Please choose one picture'):handleSubmit(answer())}} />
     </form>
   );

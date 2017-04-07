@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
 /*font-family: 'Roboto', sans-serif;*/
 
-html{
+/*html{
+  background-image: url("https://unsplash.com/collections/274003/explore-the-uk?photo=Z1tWLxk7krs");
   background-size: 100% 100%;
-}
+}*/
 .App {
   box-sizing: border-box;
   text-align: center;
@@ -18,20 +19,27 @@ html{
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 24px;
+  height: auto;
 }
 
+.headerImg{
+  float:right;
+  width:22%;
+  
+   
+}
 .App-intro {
   font-size: large;
 }
 
-.App-map img{
-  width: 200px;
-  height: 250px;
+.App-map {
+  width: 100%;
+  height: auto;
 }
 
 .App-container {
   display: flex;
-  min-height: 68vh;
+  min-height: 62vh;
   flex-direction: column;
   margin: 10px;   
 }
@@ -40,11 +48,19 @@ html{
   font-size: 10px;
   padding: 11px;
   display: inline-block;
+  
  /* background-color: #cce6ff;*/
 }
 
 .language-btn{
+  border-radius: 3px;
   margin: 2px;
+}
+
+.language-btn:hover {
+  border-radius: 3px;
+  margin: 2px;
+  background-color: #cce6ff;
 }
 
 .language-btn img {
@@ -60,12 +76,34 @@ html{
 }
 
 input[type=button],button {
-  border-radius: 75%;
+  border-radius: 30px;
   padding: 10px;
   margin: 10px;
-  width: 80px;
+  width: 100px;
+  height: auto;
+  background-color: lightblue;
+}
+
+input[type=button].nextBtn {
+  border-radius: 30px;
+  padding: 10px;
+  margin: 10px;
+  width: 100px;
   height: auto;
   background-color: #cce6ff;
+  color: white;
+  font-weight: bold;
+}
+
+input[type=button].prevBtn {
+  border-radius: 30px;
+  padding: 10px;
+  margin: 10px;
+  width: 100px;
+  height: auto;
+  background-color: white;
+  color: #cce6ff;
+  font-weight:bold;
 }
 
 label {
@@ -82,6 +120,8 @@ label {
   width:6%;
   height:6%;
 }
+
+
 form{
   font-family: 'Roboto', sans-serif;
   border: 2px #787bb6 dashed;
@@ -126,16 +166,4 @@ input:checked.pictureQuestion + img {
   background-color: white;
 }
 
-/*result.js style start*/
-.progress {
-  width: 200px;
-  border-bottom: 10px solid lightblue;
-  position: relative;
-  margin: auto;
-}
 
-.complete {
-  border-bottom: 10px solid blue;
-  position: absolute;
-}
-/*result.js style end*/

@@ -117,7 +117,7 @@ export default class App extends Component {
     // set the state to its defaul value
     if (questionNumber === questions.length) {
       // this should be rendering the result page which is in progress
-      this.PostToAPI('http://localhost:9000/api');
+      this.PostToAPI('http://localhost:8080/api');
       return (
         this.setState(
           {

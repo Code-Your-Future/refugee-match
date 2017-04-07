@@ -8,7 +8,7 @@ function collectingAnswer(event) {
   const eventId = event.target.id;
   const checked = event.target.checked;
   if (checked) { 
-    tempAnswers.push({answerId: eventId, answer: eventValue});
+    tempAnswers.push({answerId: eventId, answer: eventValue, answerValue: 1});
   }else {
     tempAnswers = tempAnswers.filter(value => value.answerId !== eventId);
   }

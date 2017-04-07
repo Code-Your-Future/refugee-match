@@ -26,6 +26,14 @@ function answer() {
   return value;
 }
 
+function resetValues() {
+  tempAnswer = {
+    answerId: null,
+    answer: null,
+    answerValue: 0
+  };
+}
+
 export default function PictureAnswer(props) {
   const question = props.question.question;
   const options = props.question.options;
@@ -54,7 +62,7 @@ export default function PictureAnswer(props) {
         type='button'
         value='Previous'
         className = 'prevBtn'
-        onClick={handlePrevious} />
+        onClick={() => handlePrevious(resetValues())} />
       <input
         type='button'
         value='Next'

@@ -3,6 +3,7 @@ import './App.css';
 import Languages from './components/Languages';
 import Question from './components/Question';
 import Footer from './components/Footer';
+import Result from './components/Result';
 
 export default class App extends Component {
   constructor(props) {
@@ -163,7 +164,12 @@ export default class App extends Component {
     const questionNumber = this.state.questionNumber;
     const questions = this.state.questions;
     const languagesList = this.state.languagesList;
-    if (questionNumber === -1 || questionNumber >= questions.length) {
+    if (questionNumber >= questions.length) {
+      return (
+          <Result />
+        );
+    }
+    if (questionNumber === -1) {
       return (
         <Languages
         languagesList={languagesList}

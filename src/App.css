@@ -125,3 +125,14 @@ input:checked.pictureQuestion + img {
 .picLabel {
   background-color: white;
 }
+
+.progress {
+  width: 200px;
+  border-bottom: 10px solid lightblue;
+  position: relative;
+}
+
+.complete {
+  border-bottom: 10px solid blue;
+  position: absolute;
+}

@@ -42,6 +42,7 @@ export default function SingleOptionAnswer(props) {
   const question = props.question.question;
   const options = props.question.options;
   const handleSubmit = props.handleSubmit;
+  const handlePrevious = props.handlePrevious;
   return (
     <form>
       <h3>{question}</h3>
@@ -84,7 +85,7 @@ export default function SingleOptionAnswer(props) {
         type='button'
         value='Previous'
         className = 'prevBtn'
-        onClick={() => console.log('some thing to do')} />
+        onClick={handlePrevious} />
       <input
         type='button'
         value='Next'

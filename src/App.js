@@ -113,7 +113,7 @@ export default class App extends Component {
     // set the state to its defaul value
     if (questionNumber === questions.length) {
       // this should be rendering the result page which is in progress
-      this.PostToAPI('http://localhost:8080/api');
+      this.PostToAPI('http://localhost:8080/api', answers);
       return (
         this.setState(
           {
@@ -141,7 +141,7 @@ export default class App extends Component {
       )
     )
   } // this is the end of handleSubmit
-  PostToAPI = (url) => {
+  PostToAPI = (url, data) => {
     fetch(url, {
       method: 'POST',
       // mode: 'no-cors',
@@ -150,7 +150,7 @@ export default class App extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-      answers: this.state.answers
+      answers: data
       })
     })
     // .then((data) => console.log(data.json()))
@@ -198,8 +198,17 @@ export default class App extends Component {
       </div>
     );
   }
-  changeInToOneArray = () => {
-
+  // function to change the answer's array to contain only object
+  changeInToOneArray = (arrayValue) => {
+    let arrayOfObject = [];
+    arrayValue.map(value => {
+      Array.isArray(value) ? (
+        value.forEach(innerArrayValue => arrayOfObject.push(innerArrayValue))
+        ) : (
+        arrayOfObject.push(value)
+      )
+    })
+    return arrayOfObject;
   }
   handlePrevious = () => {
     let questionNumber = this.state.questionNumber;

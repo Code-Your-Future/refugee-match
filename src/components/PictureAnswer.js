@@ -38,6 +38,7 @@ export default function PictureAnswer(props) {
   const question = props.question.question;
   const options = props.question.options;
   const handleSubmit = props.handleSubmit;
+  const handlePrevious = props.handlePrevious;
   return (
     <form>
       <h3>{question}</h3>

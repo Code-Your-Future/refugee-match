@@ -105,7 +105,6 @@ export default class App extends Component {
     const questions = this.state.questions;
     let answers = this.state.answers;
     let questionNumber = this.state.questionNumber;
-
     // check question number and increment it, if it has a defult value
     if (questionNumber === -1) {
       questionNumber++;
@@ -116,7 +115,7 @@ export default class App extends Component {
     answers[questionNumber] = answer;
     if (questionNumber === questions.length-1) {
       // this should be rendering the result page which is in progress
-      this.PostToAPI('http://localhost:8080/api', answers);
+      this.APIpost('http://localhost:8080/api', answers);
       return (
         this.setState(
           {
@@ -126,7 +125,6 @@ export default class App extends Component {
         )
       )
     }
-    
     questionNumber++;
     console.log(answers);
     return (
@@ -138,7 +136,7 @@ export default class App extends Component {
       )
     )
   } // this is the end of handleSubmit
-  PostToAPI = (url, data) => {
+  APIpost = (url, data) => {
     data = this.changeInToOneArray(data);
     console.log(data);
     fetch(url, {
@@ -229,5 +227,16 @@ export default class App extends Component {
         result: false
       }
     )
+  }
+  componentDidMount() {
+    this.APIfetch('http://localhost:8080/api/questions')
+      .then(questions => this.setState({ questions: questions }))
+  }
+  APIfetch = (url) => {
+    return (
+      fetch(url)
+        .then(response => response.json())
+        .then(data => data)
+    );
   }
 }

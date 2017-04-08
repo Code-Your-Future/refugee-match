@@ -51,30 +51,30 @@ export default function SingleOptionAnswer(props) {
             answer.answer !== 'Other' ? (
               <label htmlFor={answer.answerId} key={index} >
                 {answer.answer}
+                <div className='radioBtn'>
                 <input
                   type='radio'
                   name='answer'
-                  className='radioBtn'
                   value={answer.answer}
                   id={answer.answerId}
                   onChange={collectingAnswer} />
-               <br/>
+               </div>
               </label>
             ) : (
               <label htmlFor={answer.answerId} key={index} >
                 {answer.answer}
+                <div className='radioBtn'>
                 <input
                   type='radio'
                   name='answer'
-                  className='radioBtn'
                   value={answer.answer}
                   id={answer.answerId}
                   onChange={collectingAnswer} />
+                </div>
                 <br/>
                 <textarea
                   defaultValue='Please specify:'
                   onChange={collectingTextAreaValue} />
-                <br/>
               </label>
             )
           );

@@ -49,24 +49,27 @@ export default function MultiOptionAnswer(props) {
           return (
             answer.answer !== 'Other' ? (        
               <label key={index} >
+                {answer.answer}
+                <div className='checkBtn'>
                 <input
                   type='checkbox'
                   name='option'
                   value={answer.answer}
                   id={answer.answerId}
                   onChange={collectingAnswer} />
-                {answer.answer}
-                <br/>
+                </div>
               </label>
               ) : (
               <label key={index} >
+                {answer.answer}
+                <div className='checkBtn'>
                 <input
                   type='checkbox'
                   name='option'
                   value={answer.answer}
                   id={answer.answerId}
                   onChange={collectingAnswer} />
-                {answer.answer}
+                </div>
                 <br/>
                 <textarea
                   defaultValue='Please specify:'

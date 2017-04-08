@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
 /*font-family: 'Roboto', sans-serif;*/
 
-/*html{
-  background-image: url("https://unsplash.com/collections/274003/explore-the-uk?photo=Z1tWLxk7krs");
-  background-size: 100% 100%;
-}*/
 .App {
   box-sizing: border-box;
   text-align: center;
@@ -13,7 +9,6 @@
 
 .App-header {
   margin: auto;
-  /*background-color: #cce6ff;*/
   padding: 8px;
   color: black;
   font-family: 'Roboto', sans-serif;
@@ -22,12 +17,6 @@
   height: auto;
 }
 
-.headerImg{
-  float:right;
-  width:22%;
-  
-   
-}
 .App-intro {
   font-size: large;
 }
@@ -122,12 +111,12 @@ label {
 }
 
 
-form{
+form {
   font-family: 'Roboto', sans-serif;
   border: 2px #787bb6 dashed;
-  width: 300px;
+  width: 90%;
   margin: auto;
-}
+  }
 
 input{
   margin-bottom: 0px;
@@ -165,5 +154,28 @@ input:checked.pictureQuestion + img {
 .picLabel {
   background-color: white;
 }
+
+.radioBtn {
+  float: right;
+}
+
+.checkBtn {
+  float: right;
+}
+
+/*result.js style start*/
+.progress {
+  width: 200px;
+  border-bottom: 10px solid lightblue;
+  position: relative;
+  margin: auto;
+}
+
+.complete {
+  border-bottom: 10px solid blue;
+  position: absolute;
+}
+/*result.js style End*/
+
 
 

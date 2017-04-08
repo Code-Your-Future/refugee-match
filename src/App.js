@@ -187,7 +187,6 @@ export default class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img  className = 'headerImg' src={require(`./images/RefugeeMatchlogo.png`)} alt="" />
           <h2>Refugee Match</h2>
         </div>
         <div className="App-container">

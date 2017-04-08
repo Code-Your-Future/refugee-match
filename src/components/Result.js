@@ -24,6 +24,7 @@ export default class Result extends Component {
     const picture = this.state.data[0].picture;
     const quote = this.state.data[0].quote;
     const answers = this.state.data[0].answers;
+    const changeMyAnswer = this.props.whenClick;
     let completeDivStyle = {      
       width: '0px'
     }
@@ -38,10 +39,10 @@ export default class Result extends Component {
           answers.map((value, index) => {
             completeDivStyle = {width: `${Math.round((value.rankedValue * 200) / 348)}px`};
             return (
-                <div className='progress' key={index}>
-                  {value.answer}
-                  <div className='complete' style={completeDivStyle}></div>
-                </div>
+              <div className='progress' key={index}>
+                {value.answer}
+                <div className='complete' style={completeDivStyle}></div>
+              </div>
             );
           })
         }
@@ -52,7 +53,7 @@ export default class Result extends Component {
             {quote}
           </p>
         </div>
-        <button>change my answer</button>
+        <button onClick={changeMyAnswer}>change my answer</button>
       </div>
     );
   }

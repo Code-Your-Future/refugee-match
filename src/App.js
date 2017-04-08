@@ -95,6 +95,7 @@ export default class App extends Component {
         }
       ],
       answers: [],
+      result: false,
       questionNumber: -1,
     }
   }
@@ -104,6 +105,7 @@ export default class App extends Component {
     const questions = this.state.questions;
     let answers = this.state.answers;
     let questionNumber = this.state.questionNumber;
+
     // check question number and increment it, if it has a defult value
     if (questionNumber === -1) {
       questionNumber++;
@@ -111,19 +113,20 @@ export default class App extends Component {
     }
     // if it reach to the end of questions
     // set the state to its defaul value
-    if (questionNumber === questions.length) {
+    answers[questionNumber] = answer;
+    if (questionNumber === questions.length-1) {
       // this should be rendering the result page which is in progress
-      this.PostToAPI('http://localhost:8080/api', answers);
+      this.PostToAPI('http://localhost:9000/api', answers);
       return (
         this.setState(
           {
-            questionNumber: 0,
-            answers: [],
+            result: true,
+            questionNumber: 0
           }
         )
       )
     }
-    answers[questionNumber] = answer;
+    
     questionNumber++;
     console.log(answers);
     return (
@@ -136,6 +139,8 @@ export default class App extends Component {
     )
   } // this is the end of handleSubmit
   PostToAPI = (url, data) => {
+    data = this.changeInToOneArray(data);
+    console.log(data);
     fetch(url, {
       method: 'POST',
       // mode: 'no-cors',
@@ -158,10 +163,11 @@ export default class App extends Component {
     const handleSubmit = this.handleSubmit;
     const changMyAnswer = this.changMyAnswer;
     const handlePrevious = this.handlePrevious;
-    if (questionNumber >= questions.length) {
+    let result = this.state.result;
+    if (result) {
       return (
-          <Result whenClick={changMyAnswer} />
-        );
+        <Result whenClick={changMyAnswer} />
+      );
     }
     if (questionNumber === -1) {
       return (
@@ -221,6 +227,7 @@ export default class App extends Component {
       {
         questionNumber: 0,
         answers: [],
+        result: false
       }
     )
   }

@@ -9,7 +9,6 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // this state is just for displaying the outcomes (depend on the databases)
       languagesList: ['English','Arabic','Francais'],
       questions:[
         {
@@ -95,20 +94,18 @@ export default class App extends Component {
           questionType: 'single answer'
         }
       ],
-      // for pushing the ansers
       answers: [],
-      // to display each question at one time
+      result: false,
       questionNumber: -1,
-      // this is the current answer in the current page (in case if the quetion is MultiOptionQuestion)  :)
     }
   }
-
     // for the language button, checkbox and radiobox answers
   handleSubmit = (answer) => {
     // list of state we have
     const questions = this.state.questions;
     let answers = this.state.answers;
     let questionNumber = this.state.questionNumber;
+
     // check question number and increment it, if it has a defult value
     if (questionNumber === -1) {
       questionNumber++;
@@ -116,24 +113,21 @@ export default class App extends Component {
     }
     // if it reach to the end of questions
     // set the state to its defaul value
-    if (questionNumber === questions.length) {
+    answers[questionNumber] = answer;
+    if (questionNumber === questions.length-1) {
       // this should be rendering the result page which is in progress
-      this.PostToAPI('http://localhost:8080/api');
+      this.PostToAPI('http://localhost:8080/api', answers);
       return (
         this.setState(
           {
-            questionNumber: 0,
-            answers: [],
+            result: true,
+            questionNumber: 0
           }
         )
       )
     }
+    
     questionNumber++;
-    if (Array.isArray(answer)) {
-      answer.forEach(value => answers.push(value))
-    }else {
-      answers.push(answer);
-    }
     console.log(answers);
     return (
       this.setState(
@@ -144,7 +138,9 @@ export default class App extends Component {
       )
     )
   } // this is the end of handleSubmit
-  PostToAPI = (url) => {
+  PostToAPI = (url, data) => {
+    data = this.changeInToOneArray(data);
+    console.log(data);
     fetch(url, {
       method: 'POST',
       // mode: 'no-cors',
@@ -153,7 +149,7 @@ export default class App extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-      answers: this.state.answers
+      answers: data
       })
     })
     // .then((data) => console.log(data.json()))
@@ -164,22 +160,27 @@ export default class App extends Component {
     const questionNumber = this.state.questionNumber;
     const questions = this.state.questions;
     const languagesList = this.state.languagesList;
-    if (questionNumber >= questions.length) {
+    const handleSubmit = this.handleSubmit;
+    const changMyAnswer = this.changMyAnswer;
+    const handlePrevious = this.handlePrevious;
+    let result = this.state.result;
+    if (result) {
       return (
-          <Result />
-        );
+        <Result whenClick={changMyAnswer} />
+      );
     }
     if (questionNumber === -1) {
       return (
         <Languages
         languagesList={languagesList}
-        whenClick={this.handleSubmit} />
+        whenClick={handleSubmit} />
       );
     }
     return (
       <Question
       question={questions[questionNumber]}
-      handleSubmit={this.handleSubmit}/>
+      handleSubmit={handleSubmit}
+      handlePrevious={handlePrevious}/>
     );
   }
   render() {
@@ -198,5 +199,35 @@ export default class App extends Component {
         </div>
       </div>
     );
+  }
+  // function to change the answer's array to contain only object
+  changeInToOneArray = (arrayValue) => {
+    let arrayOfObject = [];
+    arrayValue.map(value => {
+      Array.isArray(value) ? (
+        value.forEach(innerArrayValue => arrayOfObject.push(innerArrayValue))
+        ) : (
+        arrayOfObject.push(value)
+      )
+    })
+    return arrayOfObject;
+  }
+  handlePrevious = () => {
+    let questionNumber = this.state.questionNumber;
+    questionNumber--;
+    this.setState(
+      {
+        questionNumber: questionNumber,
+      }
+    )
+  }
+  changMyAnswer = () => {
+    this.setState(
+      {
+        questionNumber: 0,
+        answers: [],
+        result: false
+      }
+    )
   }
 }

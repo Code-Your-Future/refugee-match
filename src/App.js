@@ -123,12 +123,6 @@ export default class App extends Component {
         )
       )
     }
-    
-    // if (Array.isArray(answer)) {
-    //   answer.forEach(value => answers.push(value))
-    // }else {
-    //   answers.push(answer);
-    // }
     answers[questionNumber] = answer;
     questionNumber++;
     console.log(answers);
@@ -161,23 +155,26 @@ export default class App extends Component {
     const questionNumber = this.state.questionNumber;
     const questions = this.state.questions;
     const languagesList = this.state.languagesList;
+    const handleSubmit = this.handleSubmit;
+    const changMyAnswer = this.changMyAnswer;
+    const handlePrevious = this.handlePrevious;
     if (questionNumber >= questions.length) {
       return (
-          <Result />
+          <Result whenClick={changMyAnswer} />
         );
     }
     if (questionNumber === -1) {
       return (
         <Languages
         languagesList={languagesList}
-        whenClick={this.handleSubmit} />
+        whenClick={handleSubmit} />
       );
     }
     return (
       <Question
       question={questions[questionNumber]}
-      handleSubmit={this.handleSubmit}
-      handlePrevious={this.handlePrevious}/>
+      handleSubmit={handleSubmit}
+      handlePrevious={handlePrevious}/>
     );
   }
   render() {
@@ -216,6 +213,14 @@ export default class App extends Component {
     this.setState(
       {
         questionNumber: questionNumber,
+      }
+    )
+  }
+  changMyAnswer = () => {
+    this.setState(
+      {
+        questionNumber: 0,
+        answers: [],
       }
     )
   }

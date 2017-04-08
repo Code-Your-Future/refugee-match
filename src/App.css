@@ -9,6 +9,7 @@
 
 .App-header {
   margin: auto;
+  /*background-color: #cce6ff;*/
   padding: 8px;
   color: black;
   font-family: 'Roboto', sans-serif;
@@ -16,6 +17,7 @@
   font-size: 24px;
   height: auto;
 }
+
 
 .App-intro {
   font-size: large;

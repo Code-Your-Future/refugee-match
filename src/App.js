@@ -202,11 +202,13 @@ export default class App extends Component {
   changeInToOneArray = (arrayValue) => {
     let arrayOfObject = [];
     arrayValue.map(value => {
-      Array.isArray(value) ? (
-        value.forEach(innerArrayValue => arrayOfObject.push(innerArrayValue))
-        ) : (
-        arrayOfObject.push(value)
-      )
+      return (
+        Array.isArray(value) ? (
+          value.forEach(innerArrayValue => arrayOfObject.push(innerArrayValue))
+          ) : (
+          arrayOfObject.push(value)
+        )
+      );
     })
     return arrayOfObject;
   }

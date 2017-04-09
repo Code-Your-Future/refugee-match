@@ -95,7 +95,7 @@ export default class App extends Component {
         }
       ],
       answers: [],
-      result: false,
+      result: null,
       questionNumber: -1,
     }
   }
@@ -115,15 +115,15 @@ export default class App extends Component {
     answers[questionNumber] = answer;
     if (questionNumber === questions.length-1) {
       // this should be rendering the result page which is in progress
-      this.APIpost('http://localhost:8080/api', answers);
-      return (
-        this.setState(
-          {
-            result: true,
+      this.APIpost('http://localhost:8080/api', answers)
+        .then((resultData) => {
+          console.log(resultData);
+          this.setState({
+            result: resultData,
             questionNumber: 0
-          }
-        )
-      )
+          })
+        })
+      return ;
     }
     questionNumber++;
     console.log(answers);

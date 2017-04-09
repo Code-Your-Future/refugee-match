@@ -19,6 +19,7 @@ function collectingAnswer(event) {
 
 function answer() {
   if (tempAnswer.answer === 'Other') {
+    tempAnswer.answerValue = 0;
     if (textAreaValue !== null) {
       tempAnswer.answer = textAreaValue;
     }

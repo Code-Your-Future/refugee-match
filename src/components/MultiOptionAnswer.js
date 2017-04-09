@@ -7,8 +7,12 @@ function collectingAnswer(event) {
   const eventValue = event.target.value;
   const eventId = event.target.id;
   const checked = event.target.checked;
-  if (checked) { 
-    tempAnswers.push({answerId: eventId, answer: eventValue, answerValue: 1});
+  let value = 1;
+  if (checked) {
+    if (eventValue === 'Other') {
+      value = 0;
+    }
+    tempAnswers.push({answerId: eventId, answer: eventValue, answerValue: value});
   }else {
     tempAnswers = tempAnswers.filter(value => value.answerId !== eventId);
   }

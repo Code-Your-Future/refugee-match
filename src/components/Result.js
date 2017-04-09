@@ -31,9 +31,11 @@ export default class Result extends Component {
     return (
       <div className="result">
         <h3>Based on your answers, you might want to consider somewhere like:</h3>
+        <div className='ansDiv'>
         <div>
           {blurb}
         </div>
+        <br/>
         <div className='answer-value'>
         {
           answers.map((value, index) => {
@@ -47,13 +49,15 @@ export default class Result extends Component {
           })
         }
         </div>
-        <div>
+        <br/>
+        <div className='photoDiv'>          
           <img className='personal-photo' src={picture} alt='' />
-          <p>
-            {quote}
-          </p>
+            <p>
+              <blockquote>{quote}</blockquote>
+            </p>
         </div>
-        <button onClick={changeMyAnswer}>change my answer</button>
+        </div>
+        <button className='resultBtn' onClick={changeMyAnswer}>Change My Answer</button>
       </div>
     );
   }

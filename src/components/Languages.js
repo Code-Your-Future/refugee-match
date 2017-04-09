@@ -17,7 +17,7 @@ export default function Languages(props) {
         </p>
       </div>
       
-      <p>Choose Your Language</p>
+      <h3>Choose Your Language</h3>
       {
         languagesList.map((language, index) => {
           return (

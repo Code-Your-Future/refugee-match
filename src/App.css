@@ -9,6 +9,7 @@
 
 .App-header {
   margin: auto;
+  /*background-color: #cce6ff;*/
   padding: 8px;
   color: black;
   font-family: 'Roboto', sans-serif;
@@ -37,10 +38,9 @@
   font-size: 10px;
   padding: 11px;
   display: inline-block;
-  
- /* background-color: #cce6ff;*/
 }
 
+/*language.js style start*/
 .language-btn{
   border-radius: 3px;
   margin: 2px;
@@ -52,27 +52,17 @@
   background-color: #cce6ff;
 }
 
-.language-btn img {
-  width: 30px;
-  height: 22px;
-  padding: 3px;
-}
-
-.footer-images img {
-  width:10%;
-  height:7%;
-  padding:5px;
-}
-
 input[type=button],button {
-  border-radius: 30px;
+  border-radius: 3px;
   padding: 10px;
   margin: 10px;
   width: 100px;
   height: auto;
   background-color: lightblue;
 }
+/*language.js style End*/
 
+/* Forms with SingleOptionAnswer.js and MultiOptionAnswer.js styles start*/
 input[type=button].nextBtn {
   border-radius: 30px;
   padding: 10px;
@@ -105,11 +95,13 @@ label {
   cursor: pointer;
 }
 
-.footer-images img:nth-child(1){
-  width:6%;
-  height:6%;
+.radioBtn {
+  float: right;
 }
 
+.checkBtn {
+  float: right;
+}
 
 form {
   font-family: 'Roboto', sans-serif;
@@ -126,7 +118,9 @@ textarea {
   width: 210px;
   height: 250px;
 }
+/* Forms with SingleOptionAnswer.js and MultiOptionAnswer.js styles end*/
 
+/* RankingAnswer.js styles start*/
 input[type=button].rankQuestion {
   display: block;
   width: 200px;
@@ -134,7 +128,9 @@ input[type=button].rankQuestion {
   margin: 10px auto;
   border-radius: 0%;
 }
+/* RankingAnswer.js styles end*/
 
+/* PictureAnswer.js styles start*/
 input[type=radio].pictureQuestion {
   display: block;
   visibility: hidden;  
@@ -154,14 +150,8 @@ input:checked.pictureQuestion + img {
 .picLabel {
   background-color: white;
 }
+/* PictureAnswer.js styles end*/
 
-.radioBtn {
-  float: right;
-}
-
-.checkBtn {
-  float: right;
-}
 
 /*result.js style start*/
 .progress {
@@ -175,7 +165,70 @@ input:checked.pictureQuestion + img {
   border-bottom: 10px solid blue;
   position: absolute;
 }
+
+.ansDiv {
+  border: 2px solid #cce6ff;
+  border-radius: 20px;
+  box-shadow:2px 2px 2px #cce6ff;
+  padding: 20px;
+}
+
+.personal-photo {
+  width:150px;
+  height:150px;
+  float:left;
+  padding-right:40px;
+}
+
+.photoDiv {
+  padding: 20px;
+  width:85%;
+  position:relative;
+  display: block;
+  left:5%;
+  background: #f9f9f9;
+}
+
+blockquote {
+    position: relative;
+    margin: 0;
+    padding:30px;
+    text-align: justify;
+    font-size: 20px;
+}
+
+blockquote:before {
+  color:red;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    font-size: 70px;
+    line-height: 1;
+    top: 0;
+    left: 15%;
+    content: "\201C";
+}
+
+.resultBtn {
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+  width: 150px;
+  height: auto;
+  background-color: lightblue;
+}
 /*result.js style End*/
 
+/*Footer.js style start*/
+.footer-images img {
+  width:10%;
+  height:7%;
+  padding:5px;
+}
 
+.footer-images img:nth-child(1){
+  width:6%;
+  height:6%;
+}
+/*Footer.js style End*/
 

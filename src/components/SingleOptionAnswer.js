@@ -84,7 +84,7 @@ export default function SingleOptionAnswer(props) {
                 </div>
                 <br/>
                 <textarea
-                  defaultValue='Please specify:'
+                  placeholder='Please specify...'
                   onChange={collectingTextAreaValue} />
               </label>
             )
@@ -94,12 +94,12 @@ export default function SingleOptionAnswer(props) {
       <input
         type='button'
         value='Previous'
-        className = 'prevBtn'
+        className='prevBtn'
         onClick={() => handlePrevious(resetValues())} />
       <input
         type='button'
         value='Next'
-        className = 'nextBtn'
+        className='nextBtn'
         onClick={() => {answerChecking() ? alert('Please choose answer'):handleSubmit(answer())}} />
     </form>
   );

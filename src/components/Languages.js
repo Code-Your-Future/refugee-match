@@ -5,7 +5,6 @@ export default function Languages(props) {
   const whenClick = props.whenClick;
   return (
     <div className="App-map">
-      
       <div>
         <p>
           This tool is designed to inform you about the different areas of the United Kingdom.
@@ -16,7 +15,6 @@ export default function Languages(props) {
           This tool has been designed by independent researchers from Oxford University to help refugees understand the countries in which they are seeking asylum.
         </p>
       </div>
-      
       <h3>Choose Your Language</h3>
       {
         languagesList.map((language, index) => {

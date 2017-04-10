@@ -32,6 +32,7 @@ export default class RankingAnswer extends Component {
       return;
     }
     this.setState({answers: answers, options: options, answersValue: answersValue, question: this.state.questionText})
+    // setTimeout(() => this.setState({answers: answers, options: options, answersValue: answersValue, question: this.state.questionText}), 150);
   }
   displayRender = () => {
     const options = this.state.options;

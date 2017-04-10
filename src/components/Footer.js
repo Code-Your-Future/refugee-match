@@ -4,11 +4,17 @@ export default function Footer() {
   return (
     <div>
       <div className="footer-images">
-        <img src={require(`../images/refugeesSay.png`)} alt="" />
-        <img src={require(`../images/universityOfOxford.png`)} alt="" />
-        <img src={require(`../images/cyf_brand.png`)} alt="" />
+        <a href="http://www.refugees-say.com/" target="_blank">
+          <img src={require(`../images/refugeesSay.png`)} alt="" />
+        </a>
+        <a href="http://www.ox.ac.uk/" target="_blank">
+          <img src={require(`../images/oxweb-logo.png`)} alt="" />
+        </a>
+        <a href="https://codeyourfuture.co/" target="_blank">
+          <img src={require(`../images/cyf-logo.png`)} alt="" />
+        </a>
       </div>
-      copyright
+      <p>© All rights reserved</p>
     </div>
   );
 }

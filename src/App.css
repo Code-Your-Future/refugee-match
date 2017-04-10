@@ -56,33 +56,34 @@ input[type=button],button {
   border-radius: 3px;
   padding: 10px;
   margin: 10px;
-  width: 100px;
+  width: 80px;
   height: auto;
-  background-color: lightblue;
+  background-color: #b3e6ff;
 }
 /*language.js style End*/
 
 /* Forms with SingleOptionAnswer.js and MultiOptionAnswer.js styles start*/
-input[type=button].nextBtn {
+input[type=button].nextBtn, input[type=button].prevBtn {
   border-radius: 30px;
   padding: 10px;
   margin: 10px;
   width: 100px;
   height: auto;
-  background-color: #cce6ff;
   color: white;
   font-weight: bold;
+  font-size: 15px;
+}
+
+input[type=button].nextBtn {
+  background-color: #b3e6ff;
+  color: white;
+  border: 1px solid white;
 }
 
 input[type=button].prevBtn {
-  border-radius: 30px;
-  padding: 10px;
-  margin: 10px;
-  width: 100px;
-  height: auto;
   background-color: white;
-  color: #cce6ff;
-  font-weight:bold;
+  color: #b3e6ff;
+  border: 1px solid #b3e6ff;
 }
 
 label {
@@ -91,7 +92,7 @@ label {
   display: block;
   width: 220px;
   text-align: left;
-  background-color: #cce6ff;
+  background-color: #b3e6ff;
   cursor: pointer;
 }
 
@@ -105,7 +106,7 @@ label {
 
 form {
   font-family: 'Roboto', sans-serif;
-  border: 2px #787bb6 dashed;
+  border: 2px #b3e6ff dashed;
   width: 90%;
   margin: auto;
   }
@@ -116,7 +117,7 @@ input{
 
 textarea {
   width: 210px;
-  height: 250px;
+  height: 60px;
 }
 /* Forms with SingleOptionAnswer.js and MultiOptionAnswer.js styles end*/
 
@@ -143,8 +144,8 @@ input[type=radio].pictureQuestion {
 }
 
 input:checked.pictureQuestion + img {
-    border:5px solid green;
-    box-shadow: 5px 5px 5px green;
+  border:5px solid lightblue;
+  box-shadow: 5px 5px 5px lightblue;
 }
 
 .picLabel {
@@ -190,23 +191,23 @@ input:checked.pictureQuestion + img {
 }
 
 blockquote {
-    position: relative;
-    margin: 0;
-    padding:30px;
-    text-align: justify;
-    font-size: 20px;
+  position: relative;
+  margin: 0;
+  padding:30px;
+  text-align: justify;
+  font-size: 20px;
 }
 
 blockquote:before {
   color:red;
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    font-size: 70px;
-    line-height: 1;
-    top: 0;
-    left: 15%;
-    content: "\201C";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  font-size: 70px;
+  line-height: 1;
+  top: 0;
+  left: 15%;
+  content: "\201C";
 }
 
 .resultBtn {
@@ -221,14 +222,16 @@ blockquote:before {
 
 /*Footer.js style start*/
 .footer-images img {
-  width:10%;
-  height:7%;
+  width:60px;
+  height:45px;
   padding:5px;
-}
-
-.footer-images img:nth-child(1){
-  width:6%;
-  height:6%;
+  display: inline-block;
 }
 /*Footer.js style End*/
 
+@media screen and (min-width: 400px) {
+  .App {
+    width: 50%;
+    margin: auto;
+  }
+}

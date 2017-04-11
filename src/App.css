@@ -128,6 +128,13 @@ input[type=button].rankQuestion {
   height: 50px;
   margin: 10px auto;
   border-radius: 0%;
+  border: none;
+}
+
+input[type=button].rankQuestion:hover {
+  box-shadow: 2px 2px 20px #00cccc;
+  opacity: 0.5;
+  transition-duration: 0.4s;
 }
 /* RankingAnswer.js styles end*/
 
@@ -177,7 +184,7 @@ input:checked.pictureQuestion + img {
 .personal-photo {
   width:150px;
   height:150px;
-  float:left;
+  /*float:left;*/
   padding-right:40px;
 }
 

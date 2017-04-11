@@ -41,24 +41,23 @@
 }
 
 /*language.js style start*/
-.language-btn{
-  border-radius: 3px;
-  margin: 2px;
-}
-
-.language-btn:hover {
-  border-radius: 3px;
-  margin: 2px;
-  background-color: #cce6ff;
-}
-
-input[type=button],button {
-  border-radius: 3px;
+.language-btn, .resultBtn{
+  border-radius: 30px;
   padding: 10px;
   margin: 10px;
-  width: 80px;
+  width: 100px;
   height: auto;
   background-color: #00cccc;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  color: white;
+}
+
+.language-btn:hover, .resultBtn:hover {
+  box-shadow: 2px 2px 20px #00cccc;
+  opacity: 0.5;
+  transition-duration: 0.4s;
 }
 /*language.js style End*/
 
@@ -69,7 +68,6 @@ input[type=button].nextBtn, input[type=button].prevBtn {
   margin: 10px;
   width: 100px;
   height: auto;
-  color: white;
   font-weight: bold;
   font-size: 15px;
 }
@@ -77,13 +75,19 @@ input[type=button].nextBtn, input[type=button].prevBtn {
 input[type=button].nextBtn {
   background-color: #00cccc;
   color: white;
-  border: 1px solid white;
+  border: none;
 }
 
 input[type=button].prevBtn {
   background-color: white;
-  color: #b3e6ff;
+  color: #00cccc;
   border: 1px solid #00cccc;
+}
+
+input[type=button].prevBtn:hover, input[type=button].nextBtn:hover {
+  opacity: 0.5;
+  transition-duration: 0.4s;
+  
 }
 
 label {
@@ -127,8 +131,10 @@ input[type=button].rankQuestion {
   width: 200px;
   height: 50px;
   margin: 10px auto;
-  border-radius: 0%;
+  border-radius: 3px;
   border: none;
+  background-color: #00cccc;
+  font-size: 17px;
 }
 
 input[type=button].rankQuestion:hover {
@@ -152,7 +158,9 @@ input[type=radio].pictureQuestion {
 
 input:checked.pictureQuestion + img {
   border:5px solid #00cccc;
-  box-shadow: 5px 5px 5px #00cccc;
+  box-shadow: 5px 5px 20px #00cccc;
+  transition-duration: 0.4s;
+  box-sizing: border-box;
 }
 
 .picLabel {
@@ -170,7 +178,7 @@ input:checked.pictureQuestion + img {
 }
 
 .complete {
-  border-bottom: 10px solid blue;
+  border-bottom: 10px solid #00cccc;
   position: absolute;
 }
 
@@ -218,12 +226,12 @@ blockquote:before {
 }
 
 .resultBtn {
-  border-radius: 3px;
+  /*border-radius: 3px;
   padding: 10px;
-  margin: 10px;
-  width: 150px;
-  height: auto;
-  background-color: lightblue;
+  margin: 10px;*/
+  width: auto;
+  /*height: auto;
+  background-color: lightblue;*/
 }
 /*result.js style End*/
 

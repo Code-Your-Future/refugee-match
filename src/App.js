@@ -91,10 +91,10 @@ export default class App extends Component {
     const handleSubmit = this.handleSubmit;
     const changMyAnswer = this.changMyAnswer;
     const handlePrevious = this.handlePrevious;
-    let result = this.state.result;
+    const result = this.state.result;
     if (result) {
       return (
-        <Result whenClick={changMyAnswer} />
+        <Result data={result} whenClick={changMyAnswer} />
       );
     }
     if (questionNumber === -1) {

@@ -58,7 +58,7 @@ input[type=button],button {
   margin: 10px;
   width: 80px;
   height: auto;
-  background-color: #b3e6ff;
+  background-color: #00cccc;
 }
 /*language.js style End*/
 
@@ -75,7 +75,7 @@ input[type=button].nextBtn, input[type=button].prevBtn {
 }
 
 input[type=button].nextBtn {
-  background-color: #b3e6ff;
+  background-color: #00cccc;
   color: white;
   border: 1px solid white;
 }
@@ -83,7 +83,7 @@ input[type=button].nextBtn {
 input[type=button].prevBtn {
   background-color: white;
   color: #b3e6ff;
-  border: 1px solid #b3e6ff;
+  border: 1px solid #00cccc;
 }
 
 label {
@@ -92,7 +92,7 @@ label {
   display: block;
   width: 220px;
   text-align: left;
-  background-color: #b3e6ff;
+  background-color: #00cccc;
   cursor: pointer;
 }
 
@@ -106,7 +106,7 @@ label {
 
 form {
   font-family: 'Roboto', sans-serif;
-  border: 2px #b3e6ff dashed;
+  border: 2px #00cccc dashed;
   width: 90%;
   margin: auto;
   }
@@ -144,8 +144,8 @@ input[type=radio].pictureQuestion {
 }
 
 input:checked.pictureQuestion + img {
-  border:5px solid lightblue;
-  box-shadow: 5px 5px 5px lightblue;
+  border:5px solid #00cccc;
+  box-shadow: 5px 5px 5px #00cccc;
 }
 
 .picLabel {
@@ -168,9 +168,9 @@ input:checked.pictureQuestion + img {
 }
 
 .ansDiv {
-  border: 2px solid #cce6ff;
+  border: 2px solid #00cccc;
   border-radius: 20px;
-  box-shadow:2px 2px 2px #cce6ff;
+  box-shadow:2px 2px 2px #00cccc;
   padding: 20px;
 }
 

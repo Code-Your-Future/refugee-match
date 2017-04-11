@@ -87,6 +87,7 @@ input[type=button].prevBtn {
 input[type=button].prevBtn:hover, input[type=button].nextBtn:hover {
   opacity: 0.5;
   transition-duration: 0.4s;
+  
 }
 
 label {

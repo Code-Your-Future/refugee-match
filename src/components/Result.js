@@ -38,7 +38,7 @@ export default class Result extends Component {
       <div className="result">
         <h3>Based on your answers, you might want to consider somewhere like:</h3>
         <div className='ansDiv'>
-        <h2>Wandsworth</h2>
+        <h2>Wandsworth </h2>
         <div>
           {blurb}
         </div>

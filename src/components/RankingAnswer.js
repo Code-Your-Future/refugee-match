@@ -27,6 +27,7 @@ export default class RankingAnswer extends Component {
     answersValue.shift();
     options = options.filter(value => value.answerId !== objectValue.answerId);
     if (options.length === 1) {
+      options[0].answerValue = 0.25;
       answers.push(options[0]);
       handleSubmit(answers);
       return;

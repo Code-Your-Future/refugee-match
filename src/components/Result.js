@@ -25,6 +25,12 @@ export default class Result extends Component {
     const quote = this.state.data[0].quote;
     const answers = this.state.data[0].answers;
     const changeMyAnswer = this.props.whenClick;
+    /*console.log(this.props.data[0]);
+    const blurb = this.props.data[0].definition;
+    const picture = this.props.data[0].profilePicture;
+    const quote = this.props.data[0].quote;
+    const answers = this.props.data[0].answers;
+    const changeMyAnswer = this.props.whenClick;*/
     let completeDivStyle = {      
       width: '0px'
     }
@@ -32,6 +38,7 @@ export default class Result extends Component {
       <div className="result">
         <h3>Based on your answers, you might want to consider somewhere like:</h3>
         <div className='ansDiv'>
+        <h2>Wandsworth</h2>
         <div>
           {blurb}
         </div>
@@ -53,7 +60,7 @@ export default class Result extends Component {
         <div className='photoDiv'>          
           <img className='personal-photo' src={picture} alt='' />
             <p>
-              <blockquote>{quote}</blockquote>
+              {quote}
             </p>
         </div>
         </div>
@@ -62,3 +69,29 @@ export default class Result extends Component {
     );
   }
 }
+
+        /*{
+          answers.map((value, index) => {
+            completeDivStyle = {width: `${Math.round((value.rankedValue * 200) / 348)}px`};
+            return (
+              <div className='progress' key={index}>
+                {value.answer}
+                <div className='complete' style={completeDivStyle}></div>
+              </div>
+            );
+          })
+        }*/
+
+        /*{
+          answers.map((value, index) => {
+            if ((value.answerId === 'q2a1') || (value.answerId === 'q2a2') || (value.answerId === 'q2a3') || (value.answerId === 'q2a4')) {
+              completeDivStyle = {width: `${Math.round((value.answerValue * 200) / 348)}px`};
+              return (
+                <div className='progress' key={index}>
+                  {value.answer}
+                  <div className='complete' style={completeDivStyle}></div>
+                </div>
+              );
+            }
+          })
+        }*/

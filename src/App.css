@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
-/*font-family: 'Roboto', sans-serif;*/
+@import url('https://fonts.googleapis.com/css?family=Vidaloka');
+
+* {
+font-family: 'Vidaloka', serif;
+}
 
 .App {
   box-sizing: border-box;
@@ -12,7 +15,6 @@
   /*background-color: #cce6ff;*/
   padding: 8px;
   color: black;
-  font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 24px;
   height: auto;
@@ -172,13 +174,13 @@ input:checked.pictureQuestion + img {
 /*result.js style start*/
 .progress {
   width: 200px;
-  border-bottom: 10px solid lightblue;
+  border-bottom: 15px solid lightblue;
   position: relative;
   margin: auto;
 }
 
 .complete {
-  border-bottom: 10px solid #00cccc;
+  border-bottom: 15px solid #00cccc;
   position: absolute;
 }
 
